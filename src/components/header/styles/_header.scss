@@ -1,0 +1,8 @@
+@use '../../mixins' as mix;
+
+
+header{
+    height: auto; 
+    border: 1px solid red;
+    background-color: mix.$headerColor;
+}

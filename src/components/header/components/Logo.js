@@ -3,13 +3,14 @@ import logo from '../../../assets/blue-logo.png'
 
 const Logo = () => {
     return (
-        <div>
-            <div >
-                <img src={ logo } alt={ 'A blue of number 3 turn 90 degrees clockwise with a blue border around it'} />
-                <span >{ 'Wazoo' }</span>
+        <div id={'left-header'} className={'d-block p-0'}>
+            <div className={'d-inline-block ps'} >
+                <img src={ logo } className={'my-auto'}
+                     alt={ 'A blue of number 3 turn 90 degrees clockwise with a blue border around it'} />
+                <span className={'fs-sm-1 ps-2 fw-bold lh-sm'} >{ 'Wazoo' }</span>
             </div>
-            <ul >
-                <li role={ 'button' } title={ '' } tabIndex={ '' } onClick={ '' } >{ 'All' }</li>
+            <ul className={'d-inline-block m-0 pe-3'} >
+                <li className={'lh-1'} role={ 'button' } title={ '' } tabIndex={ '' } onClick={ '' } >{ 'All' }</li>
                 <li role={ 'button' } title={ '' } tabIndex={ '' } onClick={ '' } >{ 'Online' }</li>
                 <li role={ 'button' } title={ '' } tabIndex={ '' } onClick={ '' } >{ 'Offline' }</li>
             </ul >            
