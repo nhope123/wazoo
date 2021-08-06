@@ -1,9 +1,11 @@
 import React from 'react'
 import logo from '../../../assets/blue-logo.png'
 
+// 1. d-block p-0
+
 const Logo = () => {
     return (
-        <div id={'left-header'} className={'d-block p-0'}>
+        <div id={'left-header'} className={'navbar-brand'}>
             <div className={'d-inline-block ps'} >
                 <img src={ logo } className={'my-auto'}
                      alt={ 'A blue of number 3 turn 90 degrees clockwise with a blue border around it'} />

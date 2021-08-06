@@ -1,8 +1,8 @@
 @use '../../mixins' as mix ;
 
 #left-header{
-
-    border: 2px solid white;
+    @include mix.dimension(auto);
+    //border: 2px solid white;
     color: white;
     div{
 
@@ -20,7 +20,7 @@
 
         li{
         @include mix.display-position(inline-block);
-        
+        line-height: 1.2rem;
         padding: 0 5px;
         }
     }

@@ -1,5 +1,7 @@
 @use './header/styles/header';
 @use './header/styles/logo';
+@use './header/styles/userCount';
+@use './main/main';
 @use './mixins' as mix;
 
 :root{
@@ -12,5 +14,5 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    
+    background-color: mix.$mainColor !important;
   }

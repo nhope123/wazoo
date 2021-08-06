@@ -5,6 +5,8 @@ $windowHeight: 100vh;
 $headerColor: #2F2F2F;
 $mainColor: #404040;
 $sidebarColor: #353535;
+$offlineColor: #ff3300;
+$onlineColor: rgb(23, 238, 23);
 
 @mixin dimension( $width, $height: auto) {
     width: $width;

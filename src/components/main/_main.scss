@@ -1,0 +1,12 @@
+@use '../mixins' as mix;
+
+
+.main-content{
+    min-height: calc( 100vh - 48px );
+}
+
+#side-menu{
+    background-color: mix.$sidebarColor;
+    
+
+}
