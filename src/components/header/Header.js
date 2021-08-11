@@ -6,8 +6,8 @@ import UserCount from './UserCount'
 
 const Header = () => {
     return (
-        <header className={ 'container-fluid ' } >
-            <nav className={'navbar-expand-xl d-flex flex-row justify-content-between'} >
+        <header className={ 'container-fluid py-2 px-4 row justify-center ' } >
+            <nav className={'container-lg border d-flex flex-row justify-content-between'} >
                 <Logo />
                 <UserCount />   
             </nav>

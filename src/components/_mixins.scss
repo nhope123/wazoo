@@ -8,6 +8,15 @@ $sidebarColor: #353535;
 $offlineColor: #ff3300;
 $onlineColor: rgb(23, 238, 23);
 
+$breakpoint-sm: 540px;
+$breakpoint-md: 720px;
+$breakpoint-lg: 960px;
+$breakpoint-xl: 1140px;
+$breakpoint-xxl: 1320px;
+
+$navbar-height: 50px;
+
+
 @mixin dimension( $width, $height: auto) {
     width: $width;
     height: $height;

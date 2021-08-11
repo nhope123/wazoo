@@ -1,0 +1,34 @@
+@use '../../mixins' as mix;
+
+#side-menu{
+
+    @include mix.dimension( 15%, calc( 100vh - 43px ) );
+}
+
+
+
+
+
+
+/* User Hightlight */
+.hightlight{
+    @include mix.dimension(85%, 60px);
+    margin-left: auto;
+    margin-right: auto;
+
+    #avatar{
+        @include mix.dimension(40px, 40px);
+
+        img{
+            @include mix.dimension(35px, 35px );
+        }
+    }
+}
+
+@media screen and (min-width: mix.$breakpoint-sm) {
+    
+    #side-menu{
+
+        @include mix.dimension( 20%, calc( 100vh - 43px ) );
+    }
+}

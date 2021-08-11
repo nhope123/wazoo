@@ -4,7 +4,7 @@ const Display = () => {
     return (
         <div className={'col-11 col-sm-9 border border-warning  main-content'} >
             <div >
-                <img src={} alt={} />
+               {/* <img src={} alt={} /> */}
             </div>
         </div>
     )
