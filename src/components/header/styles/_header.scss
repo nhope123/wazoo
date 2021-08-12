@@ -2,6 +2,7 @@
 
 
 header{
+    width: 100vw;
     height: auto; 
     //border: 1px solid red;
     background-color: mix.$headerColor;
@@ -20,6 +21,10 @@ header{
             }
         }
         
+        #group-users{
+            color: red;
+        }
+
         ul{
     
             vertical-align: bottom;

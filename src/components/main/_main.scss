@@ -2,7 +2,7 @@
 
 
 .main-content{
-    min-height: calc( 100vh - 48px );
+    min-height: calc( 100vh - mix.$navbar-height );
 }
 
 #side-menu{
