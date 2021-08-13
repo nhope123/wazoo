@@ -21,9 +21,19 @@ header{
             }
         }
         
-        #group-users{
-            color: red;
+        .dropdown:hover .dropdown-menu{
+            display: block;
         }
+
+        .btn{
+            padding: 0;
+            color: white;
+        }
+
+        .btn:hover, .horizontal-list:hover{
+            background-color: #6c757d;
+        }
+      
 
         ul{
     
