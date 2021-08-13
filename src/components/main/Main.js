@@ -1,5 +1,5 @@
 import React from 'react'
-import Display from './display/components/Display'
+import Display from './display/Display'
 import SideMenu from './sideMenu/SideMenu'
 
 const Main = () => {
