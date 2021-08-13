@@ -14,10 +14,10 @@ $breakpoint-lg: 960px;
 $breakpoint-xl: 1140px;
 $breakpoint-xxl: 1320px;
 
-$navbar-height: 50px;
+$navbar-height: 56px;
 
 
-@mixin dimension( $width, $height: auto) {
+@mixin dimension( $width: auto, $height: auto) {
     width: $width;
     height: $height;
 }

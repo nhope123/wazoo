@@ -5,7 +5,7 @@ import SideMenu from './sideMenu/SideMenu'
 const Main = () => {
     return (
         <div className={'container-fluid  p-0 main-content'}>
-            <div className={'row'} >
+            <div className={'d-flex flex-row p-0 m-0 position-relative'} >
                 <SideMenu  />
                 <Display />
             </div>

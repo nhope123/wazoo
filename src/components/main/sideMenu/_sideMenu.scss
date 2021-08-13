@@ -2,19 +2,41 @@
 
 #side-menu{
 
-    @include mix.dimension( 15%, calc( 100vh - 43px ) );
+    @include mix.dimension( auto , calc( 100vh - 56px ) ); 
+    background-color: mix.$sidebarColor;
+    .mini-menu{
+        background-color: mix.$sidebarColor;
+        transform: rotate(90deg);
+        top: 6%;
+        left: 40%;
+        cursor: pointer;
+        z-index: 50;
+
+    }
+    
 }
 
+.menu-transition{
+    left: -61px;
+    z-index: 50;
+    top: 50;
+    transition: width 2s;
 
+    &:hover{
+        left: 0;
+        
+    }
+}
 
 
 
 
 /* User Hightlight */
 .hightlight{
-    @include mix.dimension(85%, 60px);
+    @include mix.dimension(97%, auto);
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
 
     #avatar{
         @include mix.dimension(40px, 40px);
@@ -29,6 +51,8 @@
     
     #side-menu{
 
-        @include mix.dimension( 20%, calc( 100vh - 43px ) );
+        @include mix.dimension( 20%, calc( 100vh - 56px ) );
     }
 }
+
+
