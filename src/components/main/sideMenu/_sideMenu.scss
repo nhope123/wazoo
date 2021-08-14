@@ -44,6 +44,10 @@
             @include mix.dimension(35px, 35px );
         }
     }
+    
+    .online{
+        font-size: 9px;
+    }
 }
 
 @media screen and (min-width: mix.$breakpoint-sm) {

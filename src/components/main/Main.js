@@ -2,6 +2,8 @@ import React from 'react'
 import Display from './display/Display'
 import SideMenu from './sideMenu/SideMenu'
 
+
+
 const miniMenu = {
     header: 'position-absolute d-block d-sm-none mini-menu text-white  px-2 py-1 rounded ',
     container: 'position-absolute d-flex d-sm-none flex-column align-items-center justify-content-start   m-0 p-1  menu-transition   border border-primary',
