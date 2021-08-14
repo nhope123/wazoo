@@ -1,0 +1,12 @@
+@use '../../mixins' as mix;
+
+.display-content{
+    @include mix.dimension( 100vw );
+}
+
+@media screen and (min-width: mix.$breakpoint-sm) {
+    
+    .display-content{
+        @include mix.dimension( 75vw );
+    }
+}
