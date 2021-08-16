@@ -36,6 +36,13 @@
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;
+    max-width: 245px;
+    //overflow: hidden;
+
+    div{
+        padding: 2px;
+        width:auto;
+    }
 
     #avatar{
         @include mix.dimension(40px, 40px);
@@ -44,11 +51,23 @@
             @include mix.dimension(35px, 35px );
         }
     }
+
+    #user-game{
+        max-width: 57%;
+    }
+
+    #online-views{
+        max-width: 36px;
+    }
     
     .online{
         font-size: 9px;
     }
 }
+
+
+
+
 
 @media screen and (min-width: mix.$breakpoint-sm) {
     

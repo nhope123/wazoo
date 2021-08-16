@@ -31,11 +31,11 @@ const Logo = ( props ) => {
                         className={'btn dropdown-toggle px-2  d-inline-block d-sm-none fs-4 '}  >
                     <List  />
                 </button >
-                <MenuList {...DROPDOWNMENU }  />
+               {/* <MenuList menu={'horzontal-menu'}    {...DROPDOWNMENU }  /> */}
             </div >
 
             {/* Inline menu for user diaplay */}
-            <MenuList { ...HORIZONTALCONTENT }  />
+            <MenuList menu={'dropdown-menu'} { ...HORIZONTALCONTENT }  />
                        
         </div>
     )

@@ -1,6 +1,5 @@
 import React from 'react'
 import UserHighlight from './UserHighlight'
-import { formatNumber } from '../../../assets/helper_function'
 
 const SideMenu = (props) => {
 
