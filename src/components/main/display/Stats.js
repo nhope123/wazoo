@@ -11,7 +11,7 @@ const Stats = () => {
         count: 250000,
     }
     return (
-        <div className={ 'd-flex flex-sm-row flex-column justify-content-between align-items-sm-end align-items-center rounded py-3 px-3 w-100 mb-4 display-stats'} >
+        <div className={ 'd-flex flex-sm-row flex-column justify-content-between align-items-sm-end align-items-center rounded py-3 px-3 w-100 mb-5 display-stats'} >
 
             {/* Game */}
             <div className={ 'd-inline-block text-truncate  px-2 fs-5 text-purple '} >{ 'Game ljljjjjjjjjjjjjjbeing played' }</div>
