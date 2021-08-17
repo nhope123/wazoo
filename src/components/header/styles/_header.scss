@@ -2,7 +2,65 @@
 
 
 header{
+    width: 100vw;
     height: auto; 
-    border: 1px solid red;
+    //border: 1px solid red;
     background-color: mix.$headerColor;
+
+    #left-header{
+        @include mix.dimension(auto);
+        //border: 2px solid white;
+        color: white;
+        div{
+    
+            img{
+                @include mix.dimension(32px);
+            }
+            span{
+                vertical-align: bottom;
+            }
+        }
+        
+        .dropdown:hover .dropdown-menu{
+            display: block;
+        }
+
+        .btn{
+            padding: 0;
+            color: white;
+        }
+
+        .btn:hover, .horizontal-list:hover{
+            background-color: mix.$highlight-color;
+        }
+      
+
+        ul{
+    
+            vertical-align: bottom;
+    
+            li{
+            @include mix.display-position(inline-block);
+            line-height: 1.2rem;
+            padding: 0 5px;
+            }
+        }
+    }
+
+    .count-profile{
+
+        .user-count{
+            background-color: mix.$offlineColor;
+            font-size: 10px;
+            padding: 1px 2px;
+            //@include mix.dimension(15px, 15px);
+            text-align: center;
+            vertical-align: middle;
+            border-radius: 50%;
+            top: 5px;
+            right: 5px;
+            z-index: 75;
+        }
+    }
+    
 }

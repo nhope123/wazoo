@@ -1,0 +1,6 @@
+@use '../mixins' as mix;
+
+
+.main-content{
+    min-height: calc( 100vh - 56px );
+}

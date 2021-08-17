@@ -5,8 +5,21 @@ $windowHeight: 100vh;
 $headerColor: #2F2F2F;
 $mainColor: #404040;
 $sidebarColor: #353535;
+$offlineColor: #ff3300;
+$onlineColor: rgb(23, 238, 23);
+$highlight-color: #6c757d;
+$logoColor: #1981d5;
 
-@mixin dimension( $width, $height: auto) {
+$breakpoint-sm: 540px;
+$breakpoint-md: 720px;
+$breakpoint-lg: 960px;
+$breakpoint-xl: 1140px;
+$breakpoint-xxl: 1320px;
+
+$navbar-height: 56px;
+
+
+@mixin dimension( $width: auto, $height: auto) {
     width: $width;
     height: $height;
 }
@@ -14,4 +27,10 @@ $sidebarColor: #353535;
 @mixin display-position($display: block,$position: relative) {
     display: $display;
     position: $position;
+}
+
+@mixin box-shadow-mix( $args ) {
+    -webkit-box-shadow: $args;
+    -moz-box-shadow: $args;
+    box-shadow: $args;
 }
