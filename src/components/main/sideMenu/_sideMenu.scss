@@ -2,7 +2,8 @@
 
 #side-menu{
     max-width: 250px;
-    @include mix.dimension( auto , calc( 100vh - 56px ) ); 
+    @include mix.dimension( auto , calc( 100% - 56px ) ); 
+    min-height: calc( 100vh - 56px ) ;
     background-color: mix.$sidebarColor;
     
     .mini-menu{
@@ -76,7 +77,7 @@
     
     #side-menu{
 
-        @include mix.dimension( 20%, calc( 100vh - 56px ) );
+        @include mix.dimension( 20%, calc( 100% - 56px ) );
     }
 
     .hightlight{

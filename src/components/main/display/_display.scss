@@ -1,12 +1,63 @@
 @use '../../mixins' as mix;
 
+.text-purple{
+    color: #6f42c1;
+}
+.text-pink{
+    color: #d8272e;
+}
+.text-logo{
+    color: #ffc107; //mix.$logoColor;
+}
+.text-blue{
+    color: #0dcaf0;
+}
+
+
+
 .display-content{
     @include mix.dimension( 100vw , calc( 100vh - 56px ));
-    background-color: #050506;
-    
-    #banner{
+    //background-color: #050506;
+
+    #banner, #display-highlight, .display-stats {
         max-width: 900px;
     }
+
+    #display-highlight, .display-stats {
+        background-color: mix.$sidebarColor;
+        @include mix.box-shadow-mix( 0px 0px 6px mix.$highlight-color );
+    }    
+    #display-avatar{
+        @include mix.dimension( 60px )
+    }
+     
+    #display-status{
+        @include mix.dimension( 83% );
+        
+        .user{
+            color: mix.$logoColor;
+        }
+        .status{
+            color: white;
+        }
+    }
+
+    .display-stats{
+        
+        .stats{
+            width: auto;
+            max-width: 210px;
+
+            .friends-info{
+
+                & span{
+                    margin-left: 5px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    
 }
 
 @media screen and (min-width: mix.$breakpoint-md) {

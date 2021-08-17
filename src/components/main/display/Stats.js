@@ -7,19 +7,23 @@ const Stats = () => {
         count: 25000000,
     }
     let viewers = {
-        header: 'Followers',
+        header: 'Viewers',
         count: 250000,
     }
     return (
-        <div>
+        <div className={ 'd-flex flex-sm-row flex-column justify-content-between align-items-sm-end align-items-center rounded py-3 px-3 w-100 mb-4 display-stats'} >
+
             {/* Game */}
-            <div >{ 'Game being played' }</div>
+            <div className={ 'd-inline-block text-truncate  px-2 fs-5 text-purple '} >{ 'Game ljljjjjjjjjjjjjjbeing played' }</div>
 
-            {/* Followers */}
-            <FriendsInfo />
+            <div className={ 'd-inline-flex stats'} >
+                {/* Followers */}
+                <FriendsInfo { ...followers } />
 
-            {/* Views Viewers */}
-            <FriendsInfo />
+                {/* Views Viewers */}
+                <FriendsInfo { ...viewers } />
+            </div>
+            
 
         </div>
     )
