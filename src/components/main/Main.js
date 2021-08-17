@@ -6,11 +6,11 @@ import SideMenu from './sideMenu/SideMenu'
 
 const miniMenu = {
     header: 'position-absolute d-block d-sm-none mini-menu text-white  px-2 py-1 rounded ',
-    container: 'position-absolute d-flex d-sm-none flex-column align-items-center justify-content-start   m-0 p-1  menu-transition   border border-primary',
+    container: 'position-absolute d-flex d-sm-none flex-column align-items-center justify-content-start   m-0 p-1  menu-transition ',
 };
 
 const mainMenu = {
-    header: 'text-white w-100 border text-center p-2 d-none d-sm-block',
+    header: 'text-white w-100 fw-bold text-center p-2 d-none d-sm-block',
     container: 'position-relative d-none d-sm-flex flex-column vw-25',
  };
 

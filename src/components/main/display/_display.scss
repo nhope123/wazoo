@@ -1,12 +1,19 @@
 @use '../../mixins' as mix;
 
 .display-content{
-    @include mix.dimension( 100vw );
+    @include mix.dimension( 100vw , calc( 100vh - 56px ));
+    background-color: #050506;
+    
+    #banner{
+        max-width: 900px;
+    }
 }
 
-@media screen and (min-width: mix.$breakpoint-sm) {
+@media screen and (min-width: mix.$breakpoint-md) {
     
     .display-content{
-        @include mix.dimension( 75vw );
+        @include mix.dimension( 90vw , calc( 100vh - 56px ));
+        
+        
     }
 }

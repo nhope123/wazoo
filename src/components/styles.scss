@@ -3,6 +3,7 @@
 @use './mixins' as mix;
 
 @use './main/sideMenu/sideMenu';
+@use './main/display/display';
 
 :root{
     box-sizing: border-box;
