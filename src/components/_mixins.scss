@@ -7,6 +7,7 @@ $mainColor: #404040;
 $sidebarColor: #353535;
 $offlineColor: #ff3300;
 $onlineColor: rgb(23, 238, 23);
+$highlight-color: #6c757d;
 
 $breakpoint-sm: 540px;
 $breakpoint-md: 720px;
@@ -25,4 +26,10 @@ $navbar-height: 56px;
 @mixin display-position($display: block,$position: relative) {
     display: $display;
     position: $position;
+}
+
+@mixin box-shadow-mix( $args ) {
+    -webkit-box-shadow: $args;
+    -moz-box-shadow: $args;
+    box-shadow: $args;
 }

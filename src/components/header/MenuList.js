@@ -20,18 +20,22 @@ const DROPDOWN = {
 
 
 const MenuList = (props) => {
+    console.log(props.menu);
+
+    let menuType = (props.menu === 'horizontal-menu')? HORIZONTAL : DROPDOWN
+
     return (
-        <ul className={ `${(props.menu === 'horzontal-menu')? HORIZONTAL.menu : DROPDOWN.menu } `} role={'alert'} 
-            aria-labelledby={`${(props.menu === 'horzontal-menu')? HORIZONTAL.label : DROPDOWN.label } `} >
-            <li className={ `${(props.menu === 'horzontal-menu')? HORIZONTAL.item : DROPDOWN.item } `} 
+        <ul className={ menuType.menu } role={'alert'} 
+            aria-labelledby={ menuType.label } >
+            <li className={ menuType.item } 
                 role={ 'button' } title={ 'Show All Users' } tabIndex={ '0' } onClick={ '' } >
                 { 'All' }
             </li>
-            <li className={ `${(props.menu === 'horzontal-menu')? HORIZONTAL.item : DROPDOWN.item } `} 
+            <li className={ menuType.item } 
                 role={ 'button' } title={ 'Show Online Users' } tabIndex={ '0' } onClick={ '' } >
                 { 'Online' }
             </li>
-            <li className={ `${(props.menu === 'horzontal-menu')? HORIZONTAL.item : DROPDOWN.item } `} 
+            <li className={ menuType.item } 
                 role={ 'button' } title={ 'Show Offline Users' } tabIndex={ '0' } onClick={ '' } >
                 { 'Offline' }
             </li>

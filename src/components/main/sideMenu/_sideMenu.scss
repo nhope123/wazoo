@@ -1,9 +1,10 @@
 @use '../../mixins' as mix;
 
 #side-menu{
-
+    max-width: 250px;
     @include mix.dimension( auto , calc( 100vh - 56px ) ); 
     background-color: mix.$sidebarColor;
+    
     .mini-menu{
         background-color: mix.$sidebarColor;
         transform: rotate(90deg);
@@ -32,21 +33,22 @@
 
 /* User Hightlight */
 .hightlight{
-    @include mix.dimension(97%, auto);
-    margin-left: auto;
-    margin-right: auto;
+    @include mix.dimension(45px, auto);
+    @include mix.box-shadow-mix( 0px 0px 6px mix.$highlight-color );
+    margin: 8px auto 0;
     cursor: pointer;
     max-width: 245px;
-    //overflow: hidden;
+    overflow: hidden;
+    min-width: 54px;
 
-    div{
-        padding: 2px;
-        width:auto;
+    &:hover{
+        transform: scale(1.02);
+        @include mix.box-shadow-mix( 0px 0px 10px mix.$highlight-color );
     }
-
+   
     #avatar{
         @include mix.dimension(40px, 40px);
-
+        //padding: 2px;
         img{
             @include mix.dimension(35px, 35px );
         }
@@ -54,10 +56,12 @@
 
     #user-game{
         max-width: 57%;
+        padding: 0 2px;
     }
 
     #online-views{
         max-width: 36px;
+        padding: 2px;
     }
     
     .online{
@@ -69,11 +73,15 @@
 
 
 
-@media screen and (min-width: mix.$breakpoint-sm) {
+@media screen and (min-width: mix.$breakpoint-md) {
     
     #side-menu{
 
         @include mix.dimension( 20%, calc( 100vh - 56px ) );
+    }
+
+    .hightlight{
+        @include mix.dimension(97%, auto);
     }
 }
 
