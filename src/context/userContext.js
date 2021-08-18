@@ -51,16 +51,21 @@ const UserContextProvider = ( props ) =>{
     const [ userChoice, setUserChoice ] = useState( [])
 
     const setChoice = choice =>{
+        let value;
         switch (choice) {
             case 'All':
                 setUserChoice( users )
                 break;
             case 'Online':
-                setUserChoice( users.filter( user => user.online )  )
+                value = users.filter( user => user.online )
+                setUserChoice( value )
+                setdisplayUser( value[0] )
                 break;
             case 'Offline':
-            setUserChoice( users.filter( user => !user.online) )
-            break;
+                value = users.filter( user => !user.online)
+                setUserChoice( value )
+                setdisplayUser( value[0] )
+                break;
         
             default:
                 break;

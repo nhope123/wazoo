@@ -23,12 +23,21 @@
         max-width: 900px;
     }
 
+    #banner{
+        min-height: 180px;
+        background-image: url('https://s3.envato.com/files/156884535/Game_Background_Emerald_Lake_4270x2135.jpg');
+    }
     #display-highlight, .display-stats {
         background-color: mix.$sidebarColor;
         @include mix.box-shadow-mix( 0px 0px 6px mix.$highlight-color );
     }    
-    #display-avatar{
-        @include mix.dimension( 60px )
+     .avatar-container{
+        @include mix.dimension( 60px, 60px );
+        overflow: hidden;
+        #display-avatar{
+        @include mix.dimension( 100% );
+
+        }
     }
      
     #display-status{

@@ -16,14 +16,14 @@ const UserHighlight = ( props ) => {
 
     //const data = userChoice.filter( item => item.id === props.id)
     
-    console.log(props.id);
+    //console.log(props.id);
     //console.log('hope');
     return (
         <div className={ 'd-flex flex-row align-items-end  justify-content-between  rounded hightlight  px-2 py-1' }
              onClick={ ()=>{}}>
 
             {/* Avatar */}
-            <div id={'avatar'} className={ 'border rounded-circle d-flex flex-row justify-content-center align-items-center '} >
+            <div id={'avatar'} className={ 'border rounded-circle d-flex flex-row justify-content-center align-items-center  '} >
                 <img  src={ ( props.online )? props.logo : avatar } alt={`${ props.name } user avatar`}  />
             </div>
 

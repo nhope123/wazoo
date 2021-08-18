@@ -8,7 +8,7 @@ const SideMenu = (props) => {
         //console.log( 'side menu');
     }, [userChoice])
 
-    console.log( userChoice );
+    //console.log( userChoice );
     return (
         <div id={'side-menu'} 
         className={ props.container} >
