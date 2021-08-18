@@ -9,7 +9,7 @@
 
 
 
-<h4 align="center">Online Todo list manager.</h4>
+<h4 align="center">Twitch User data dashboard.</h4>
 
 
 
@@ -29,15 +29,13 @@
 
 <h2 id='key-features' >Key Featuures</h2>
 
-- Create a Todo list containing:
-	+ Title
-	+ Creation date
-	+ List of tasks
-	+ Custom background color
-	+ Custom font color
-- Add Todo list to collection	
-- Removing existing Todo list
-- Local persistent storage of Todo list collection
+- Fetch a list of Twitch User's data
+- Select a group of User:
+	+ Select all users
+	+ Select online users
+	+ Select offline users
+- Upon selecting an individual User, display User data	
+- Link User name to User's online channel
 
 <h2 id='how-to-use' >How To Use</h2>
 
@@ -68,8 +66,8 @@ Note: If you're using Linux Bash for Windows, [see this guide](https://www.howto
 
 <h2 id='validation' >Validation</h2>
 
-+ [mobile friendly test](https://search.google.com/test/mobile-friendly?id=bMQlVCCU8iGe8_vn_X9ZGg)
-+ [HTML Validation](https://validator.w3.org/nu/?doc=https%3A%2F%2Fnhope123.github.io%2Ftodo-manager%2F)
++ [mobile friendly test](https://search.google.com/test/mobile-friendly?id=3PLD5N1q2U1bfb6-WEx9vw)
++ [HTML Validation](https://validator.w3.org/nu/?doc=https%3A%2F%2Fnhope123.github.io%2Fwazoo%2F)
 
 <h2 id='credits' >Credits</h2> 
 
