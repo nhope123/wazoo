@@ -5,10 +5,9 @@ import UserHighlight from './UserHighlight'
 const SideMenu = (props) => {
     const { userChoice } = useContext( UserChoiceContext )
     useEffect(() => {
-        //console.log( 'side menu');
+        
     }, [userChoice])
 
-    //console.log( userChoice );
     return (
         <div id={'side-menu'} 
         className={ props.container} >

@@ -9,7 +9,7 @@ const DisplayHighlight = () => {
     return (
         
         <div id={ 'display-highlight' } 
-            className={'rounded  position-relative d-flex flex-row align-items-center justify-content-start mb-4 w-100'}>
+            className={'rounded  position-relative d-flex flex-column flex-sm-row align-items-center justify-content-start mb-4 w-100'}>
             
                 {/* Avatar */}
             <a href={ displayUser.link } target={'_top'} tabIndex={'0'} title={ `Go to ${ displayUser.name } page`} 

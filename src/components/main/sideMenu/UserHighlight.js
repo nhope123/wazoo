@@ -2,14 +2,14 @@ import React, { useContext, useEffect } from 'react'
 import { CircleFill } from 'react-bootstrap-icons'
 import avatar from '../../../assets/batman.png'
 import { formatNumber } from '../../../assets/helper_function';
-import { UserChoiceContext } from '../../../context/userContext';
+import { DisplayUserContext } from '../../../context/userContext';
 
 //import { userData } from '../../../assets/json-data';
 
 
 
 const UserHighlight = ( props ) => {
-    //const {userChoice } = useContext( UserChoiceContext )
+    const { setdisplayUser } = useContext( DisplayUserContext )
 
     useEffect(() => {
    }, [ props]) 
@@ -19,8 +19,8 @@ const UserHighlight = ( props ) => {
     //console.log(props.id);
     //console.log('hope');
     return (
-        <div className={ 'd-flex flex-row align-items-end  justify-content-between  rounded hightlight  px-2 py-1' }
-             onClick={ ()=>{}}>
+        <div className={ 'd-flex flex-row align-items-end  justify-content-start  rounded hightlight  px-2 py-1' }
+             onClick={ ()=> setdisplayUser(props) } title={ `Display ${ props.name} details`}>
 
             {/* Avatar */}
             <div id={'avatar'} className={ 'border rounded-circle d-flex flex-row justify-content-center align-items-center  '} >
@@ -28,7 +28,7 @@ const UserHighlight = ( props ) => {
             </div>
 
             {/* User name and game played */}
-            <div id={ 'user-game' } className={ 'd-none d-md-inline-block text-white fw-bold'} >
+            <div id={ 'user-game' } className={ 'd-none d-md-inline-block text-white fw-bold ps-3'} >
                 
                 {/* User Name */}
                 <div className={'text-truncate'} >{ props.name }</div>
@@ -38,7 +38,7 @@ const UserHighlight = ( props ) => {
             </div>
 
             {/* Online and viewer info */}
-            <div id={ 'online-views'} className={ 'd-none d-lg-inline-block  '} >
+            <div id={ 'online-views'} className={ 'd-none d-lg-inline-block position-absolute   '} >
                 <div className={'online'} style={{ color:  ( props.online )? 'green' : 'red'}}>
                     <CircleFill />
                 </div>

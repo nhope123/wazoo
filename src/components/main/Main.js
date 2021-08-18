@@ -10,7 +10,7 @@ const miniMenu = {
 };
 
 const mainMenu = {
-    header: 'text-white w-100 fw-bold text-center p-2 d-none d-sm-block',
+    header: 'text-white w-100 fw-bold text-center p-2 d-none d-sm-block bottom-border',
     container: 'position-relative d-none d-sm-flex flex-column vw-25',
  };
 
