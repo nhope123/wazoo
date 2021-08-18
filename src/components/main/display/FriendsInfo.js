@@ -4,6 +4,7 @@ import { formatNumber } from '../../../assets/helper_function'
 
 
 const FriendsInfo = ( props ) => {
+
     return (
         <div className={ ' d-inline-block px-2 py-0 friends-info text-nowrap '}>
             <div className={ 'lh-lg text-white '} >{ props.header }</div>

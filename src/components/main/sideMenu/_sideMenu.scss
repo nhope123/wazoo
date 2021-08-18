@@ -48,7 +48,8 @@
    
     #avatar{
         @include mix.dimension(40px, 40px);
-        //padding: 2px;
+        color: royalblue;
+        overflow: hidden;
         img{
             @include mix.dimension(35px, 35px );
         }
@@ -62,6 +63,7 @@
     #online-views{
         max-width: 36px;
         padding: 2px;
+        right: 10px;
     }
     
     .online{

@@ -1,37 +1,48 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { CircleFill } from 'react-bootstrap-icons'
 import avatar from '../../../assets/batman.png'
 import { formatNumber } from '../../../assets/helper_function';
+import { DisplayUserContext } from '../../../context/userContext';
 
-import { userData } from '../../../assets/json-data';
+//import { userData } from '../../../assets/json-data';
 
 
 
-const UserHighlight = () => {
-    console.log(JSON.stringify(userData));
+const UserHighlight = ( props ) => {
+    const { setdisplayUser } = useContext( DisplayUserContext )
+
+    useEffect(() => {
+   }, [ props]) 
+
+    //const data = userChoice.filter( item => item.id === props.id)
+    
+    //console.log(props.id);
+    //console.log('hope');
     return (
-        <div className={ 'd-flex flex-row align-items-end  justify-content-between  rounded hightlight  px-2 py-1' }
-             onClick={ ()=>{}}>
+        <div className={ 'd-flex flex-row align-items-end  justify-content-start  rounded hightlight  px-2 py-1' }
+             onClick={ ()=> setdisplayUser(props) } title={ `Display ${ props.name} details`}>
 
             {/* Avatar */}
-            <div id={'avatar'} className={ 'border rounded-circle d-flex flex-row justify-content-center align-items-center '} >
-                <img  src={avatar} alt={`${'user'} user avatar`}  />
+            <div id={'avatar'} className={ 'border rounded-circle d-flex flex-row justify-content-center align-items-center  '} >
+                <img  src={ ( props.online )? props.logo : avatar } alt={`${ props.name } user avatar`}  />
             </div>
 
             {/* User name and game played */}
-            <div id={ 'user-game' } className={ 'd-none d-md-inline-block text-white fw-bold'} >
+            <div id={ 'user-game' } className={ 'd-none d-md-inline-block text-white fw-bold ps-3'} >
+                
                 {/* User Name */}
-                <div className={'text-truncate'} >{`${userData.channel.name}jjhhkgtgtgkk`}</div>
+                <div className={'text-truncate'} >{ props.name }</div>
+                
                 {/* Games */}
-                <div className={'text-truncate'} >{userData.channel.game}</div>
+                <div className={'text-truncate'} >{ ( props.online )? props.game : 'Offline' }</div>
             </div>
 
             {/* Online and viewer info */}
-            <div id={ 'online-views'} className={ 'd-none d-lg-inline-block  '} >
-                <div className={'online'} >
+            <div id={ 'online-views'} className={ 'd-none d-lg-inline-block position-absolute   '} >
+                <div className={'online'} style={{ color:  ( props.online )? 'green' : 'red'}}>
                     <CircleFill />
                 </div>
-                <div className={'online text-white'} >{ formatNumber( userData.channel.views ) }</div>
+                <div className={'online text-white'} >{ ( props.online )? formatNumber(props.live_viewers) : 0 }</div>
             </div>
 
         </div>
