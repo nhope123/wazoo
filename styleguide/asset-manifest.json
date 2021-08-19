@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.js": "/wazoo/build/main.b5281c83.js",
+    "runtime-main.js": "/wazoo/build/bundle.b50e26a4.js",
+    "build/2.c3e950cc.js": "/wazoo/build/2.c3e950cc.js",
+    "build/2.c3e950cc.js.LICENSE.txt": "/wazoo/build/2.c3e950cc.js.LICENSE.txt",
+    "index.html": "/wazoo/index.html",
+    "static/media/blue-logo.44049e17.png": "/wazoo/static/media/blue-logo.44049e17.png"
+  },
+  "entrypoints": [
+    "build/bundle.b50e26a4.js",
+    "build/2.c3e950cc.js",
+    "build/main.b5281c83.js"
+  ]
+}
