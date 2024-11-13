@@ -84,7 +84,7 @@ This software uses the following open source packages:
 
 <h2 id='authors' >Authors</h2>
 
-+ [Nial Hope](https://github.com/nhope123) - Repository
++ [nhope](https://github.com/nhope123) - Repository
   + [Portfolio](https://nhope123.github.io/)
   + [Linkedin](https://www.linkedin.com/in/nialhope/)
 
