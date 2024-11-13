@@ -21,7 +21,7 @@
     "noUncheckedSideEffectImports": true,
     "forceConsistentCasingInFileNames": true,
 
-    "types": ["vitest/jsdom"],
+    "types": ["vitest/jsdom"]
   },
   "include": ["vite.config.ts"]
 }
