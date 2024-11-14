@@ -15,6 +15,7 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
 import organizeImports from 'prettier-plugin-organize-imports';
 import { parser } from 'typescript-eslint';
+import jsdom from 'eslint-plugin-jsdom';
 
 const { rules: airbnbRules } = airbnbConfig;
 
@@ -34,10 +35,12 @@ export default [
       react: react,
       prettier: prettier,
       'prettier-plugin-organize-imports': organizeImports,
+      'jsdom': jsdom,
     },
     rules: {
       ...airbnbRules,
       ...reactHooks.configs.recommended.rules,
+      ...jsdom.configs.recommended.rules,
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },

@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "forceConsistentCasingInFileNames": true,
-    "strict": true
+    "strict": true,
+    // "baseUrl": "./",
+    "paths": {
+      "test": ["./src/test/*"],      
+    }
   },
   "files": [],
   "references": [

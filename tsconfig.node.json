@@ -23,5 +23,5 @@
 
     "types": ["vitest/jsdom"]
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts", "./test/vitest-setup.tsx"]
 }
