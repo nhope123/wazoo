@@ -23,7 +23,7 @@
     "noUncheckedSideEffectImports": true,
     "forceConsistentCasingInFileNames": true,
 
-    "types": ["vitest/jsdom"]
+    "types": ["."]
   },
-  "include": ["src", "./test/vitest-setup.tsx"],
+  "include": ["src", "./src/test/vitest-setup.tsx"],
 }

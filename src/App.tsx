@@ -1,4 +1,4 @@
-import { Header } from './components';
+import { Header } from '@components';
 import Box from '@mui/material/Box';
 import { SxProps, Theme } from '@mui/material/styles';
 

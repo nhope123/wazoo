@@ -21,7 +21,7 @@
     "noUncheckedSideEffectImports": true,
     "forceConsistentCasingInFileNames": true,
 
-    "types": ["vitest/jsdom"]
+    "types": ["."]
   },
-  "include": ["vite.config.ts", "./test/vitest-setup.tsx"]
+  "include": ["./vite.config.ts", "./test/vitest-setup.tsx"]
 }

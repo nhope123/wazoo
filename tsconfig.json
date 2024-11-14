@@ -5,7 +5,9 @@
     // "baseUrl": "./",
     "paths": {
       "test": ["./src/test/*"],      
-    }
+    },
+    "typeRoots": ["."]
+
   },
   "files": [],
   "references": [

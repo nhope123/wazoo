@@ -21,14 +21,17 @@ export default defineConfig({
       '@components': path.resolve(__dirname, 'src/components'),
       '@context': path.resolve(__dirname, 'src/context'),
       '@hooks': path.resolve(__dirname, 'src/hooks'),
-      '@': path.resolve(__dirname, 'src/'),
+      '@src': path.resolve(__dirname, 'src/'),
     },
   },
+
   test: {
-    root: '.',
-    include: ['src/**/*.test.tsx'],
+    root: __dirname,
+    include: ['src/**/*.test.tsx', 'src/**/*.test.ts'],
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/test/vitest-setup.tsx',
+    name: 'Wazoo',
+    workspace: './vite.config.ts',
   },
 });

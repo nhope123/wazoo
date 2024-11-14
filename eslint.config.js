@@ -8,6 +8,7 @@
 import tseslint from '@typescript-eslint/eslint-plugin';
 import airbnbConfig from 'eslint-config-airbnb-typescript';
 import prettierConfig from 'eslint-config-prettier';
+import jestDom from 'eslint-plugin-jest-dom';
 import prettier from 'eslint-plugin-prettier';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -15,9 +16,6 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
 import organizeImports from 'prettier-plugin-organize-imports';
 import { parser } from 'typescript-eslint';
-import jsdom from 'eslint-plugin-jsdom';
-
-const { rules: airbnbRules } = airbnbConfig;
 
 export default [
   {
@@ -35,12 +33,12 @@ export default [
       react: react,
       prettier: prettier,
       'prettier-plugin-organize-imports': organizeImports,
-      'jsdom': jsdom,
+      'jest-dom': jestDom,
     },
     rules: {
-      ...airbnbRules,
+      ...airbnbConfig.rules,
       ...reactHooks.configs.recommended.rules,
-      ...jsdom.configs.recommended.rules,
+      ...jestDom.configs.recommended.rules,
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },

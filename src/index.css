@@ -25,3 +25,7 @@ body {
   height: 100vh;
   box-sizing: border-box;
 }
+
+title {
+  color: #1976d2;
+}
