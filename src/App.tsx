@@ -1,3 +1,4 @@
+import { Header } from './components';
 import Box from '@mui/material/Box';
 import { SxProps, Theme } from '@mui/material/styles';
 
@@ -11,7 +12,11 @@ const rootSx: SxProps<Theme> = {
 };
 
 const App = () => {
-  return <Box sx={rootSx}>App Placeholder</Box>;
+  return (
+    <Box sx={rootSx}>
+      <Header />
+    </Box>
+  );
 };
 
 export default App;

@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import { defineConfig } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint2';
 
 // https://vite.dev/config/
@@ -15,12 +15,13 @@ export default defineConfig({
     }),
   ],
   resolve: {
+    // extensions: ['.js', '.ts', '.jsx', '.tsx'],
     alias: {
       '@assets': path.resolve(__dirname, 'src/assets'),
-      '@': path.resolve(__dirname, 'src/'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@context': path.resolve(__dirname, 'src/context'),
       '@hooks': path.resolve(__dirname, 'src/hooks'),
+      '@': path.resolve(__dirname, 'src/'),
     },
   },
   test: {
