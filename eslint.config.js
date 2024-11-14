@@ -21,7 +21,7 @@ const { rules: airbnbRules } = airbnbConfig;
 export default [
   {
     ignores: ['dist'],
-    files: ['**/*.{js,ts,tsx}'],
+    files: ['**/*.{js,svg,ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,

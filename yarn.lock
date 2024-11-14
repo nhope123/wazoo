@@ -470,6 +470,11 @@
   dependencies:
     levn "^0.4.1"
 
+"@fontsource/shrikhand@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/shrikhand/-/shrikhand-5.1.0.tgz#a207c2827a0d620b122af25a49bd8b9b20652f36"
+  integrity sha512-v0dFaHswCp+mNxwI7vEKnvZ4UBUNElMahicGsfLOoOSyELrdY93drSIU1rpNCMRFFIJz4u+5yzYkgQ3xhTuvVw==
+
 "@humanfs/core@^0.19.1":
   version "0.19.1"
   resolved "https://registry.npmjs.org/@humanfs/core/-/core-0.19.1.tgz"
