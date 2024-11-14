@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import { SxProps, Theme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { FC } from 'react';
-import { logo } from '../../../../assets';
+import { logo } from '@assets';
 
 const rootSx: SxProps<Theme> = {
   alignItems: 'center',

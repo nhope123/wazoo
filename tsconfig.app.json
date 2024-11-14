@@ -23,6 +23,14 @@
     "noUncheckedSideEffectImports": true,
     "forceConsistentCasingInFileNames": true,
 
+    "paths": {
+      "@assets": ["./src/assets"],
+      "@components": ["./src/components"],
+      "@context": ["./src/context"],
+      "@hooks": ["./src/hooks"],
+      "@src": ["./src/"],
+      "@test": ["./src/test"]
+    },
     "types": ["."]
   },
   "include": ["src", "./src/test/vitest-setup.tsx"],
