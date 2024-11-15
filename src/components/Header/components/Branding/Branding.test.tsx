@@ -1,4 +1,9 @@
-import { describe, expect, it, render } from '../../../.../../../test/vitest-setup';
+import {
+  describe,
+  expect,
+  it,
+  render,
+} from '../../../.../../../test/vitest-setup';
 import Branding from './Branding';
 
 describe('Branding Component', () => {

@@ -8,6 +8,7 @@ import { Branding } from '../../components';
 const rootSx: SxProps<Theme> = {
   backgroundColor: (theme) => alpha(`${theme.palette.background.paper}`, 0.001),
   color: 'text.primary',
+  position: 'static',
 };
 const Header: FC = () => {
   return (

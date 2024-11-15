@@ -29,7 +29,7 @@
       "@context": ["./src/context"],
       "@hooks": ["./src/hooks"],
       "@src": ["./src"],
-      "@test": ["./src/test"],
+      "@test": ["./src/test"]
     },
     "types": ["."]
   },
