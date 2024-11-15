@@ -1,3 +1,6 @@
-export { default as Wrapper } from './TestWrapper';
-export type * from './types';
+// import * as setup from './vitest-setup';
+import * as Wrapper from './TestWrapper';
 export * from './vitest-setup';
+
+export type * from './types';
+export {  Wrapper };

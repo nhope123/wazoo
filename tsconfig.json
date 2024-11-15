@@ -2,15 +2,6 @@
   "compilerOptions": {
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    // "baseUrl": ".",
-    // "paths": {
-    //   "@assets": ["./src/assets"],
-    //   "@components": ["./src/components"],
-    //   "@context": ["./src/context"],
-    //   "@hooks": ["./src/hooks"],
-    //   "@src": ["./src/"],
-    //   "@test": ["./src/test"]
-    // },
     "typeRoots": ["."]
   },
   "files": [],

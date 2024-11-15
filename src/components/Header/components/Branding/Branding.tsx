@@ -10,7 +10,6 @@ const rootSx: SxProps<Theme> = {
   flexGrow: 1,
   gap: 2,
   justifyContent: 'flex-start',
-  
 };
 
 const appNameSx: SxProps<Theme> = {
@@ -23,8 +22,17 @@ const IMAGE_SIZE = 32;
 const Branding: FC = () => {
   return (
     <Box sx={rootSx}>
-      <img src={logo} alt="logo" width={IMAGE_SIZE} height={IMAGE_SIZE} />
-      <Typography color="primary" variant="h5" sx={appNameSx}>
+      <img
+        src={logo}
+        alt="logo"
+        width={IMAGE_SIZE}
+        height={IMAGE_SIZE}
+      />
+      <Typography
+        color="primary"
+        variant="h5"
+        sx={appNameSx}
+      >
         {APP_NAME}
       </Typography>
     </Box>

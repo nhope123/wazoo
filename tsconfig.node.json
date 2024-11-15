@@ -26,8 +26,8 @@
       "@components": ["./src/components"],
       "@context": ["./src/context"],
       "@hooks": ["./src/hooks"],
-      "@src": ["./src/"],
-      "@test": ["./src/test"]
+      "@src": ["./src"],
+      "@test": ["./src/test"],
     },
     "types": ["."]
   },

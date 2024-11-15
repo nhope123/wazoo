@@ -57,7 +57,9 @@ $ npm start
 # Run the documentation
 $ npm run styleguidist server
 ```
+
 <!-- TODO: Add direction for the .env file and add a template -->
+
 Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
 
 <h2 id='validation' >Validation</h2>

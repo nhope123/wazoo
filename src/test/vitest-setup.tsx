@@ -1,8 +1,13 @@
 import '@testing-library/jest-dom';
-import { configure, render, RenderOptions, RenderResult } from '@testing-library/react';
-import { Wrapper } from '.';
+import {
+  configure,
+  render,
+  RenderOptions,
+  RenderResult,
+} from '@testing-library/react';
 import { ReactNode } from 'react';
 import { afterEach, beforeEach } from 'vitest';
+import Wrapper from './TestWrapper';
 
 configure({ reactStrictMode: true });
 
@@ -10,7 +15,10 @@ const customRender = (
   ui: ReactNode,
   options?: Omit<RenderOptions, 'wrapper'>,
 ) => {
-  return render(ui, {wrapper: Wrapper, ...options}) as RenderResult;
+  return render(ui, {
+    wrapper: Wrapper,
+    ...options,
+  }) as RenderResult;
 };
 
 // Add any global setup code for your tests here
@@ -21,7 +29,6 @@ beforeEach(() => {
 afterEach(() => {
   // Cleanup code after each test
 });
-
 
 // eslint-disable-next-line react-refresh/only-export-components
 export * from 'vitest';
