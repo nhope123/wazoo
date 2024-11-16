@@ -57,6 +57,7 @@ const viewWrapSx: SxProps<Theme> = {
 
 const ChannelDisplay: FC<ChannelDisplayProps> = (props) => {
   const { channel } = props;
+
   const viewers = useMemo(() => {
     return [
       { name: 'Followers', value: formatNumber(channel?.followers ?? 0) },
@@ -64,6 +65,7 @@ const ChannelDisplay: FC<ChannelDisplayProps> = (props) => {
       { name: 'Live', value: formatNumber(channel?.live_viewers ?? 0) },
     ];
   }, [channel]);
+
   return (
     <Grid2
       size={{ xs: 12, md: 8 }}

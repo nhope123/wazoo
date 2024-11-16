@@ -4,33 +4,12 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { SxProps, Theme } from '@mui/material/styles';
-import { ChannelDetail } from '../Sidebar/types';
-import VideocamOutlined from '@mui/icons-material/VideocamOutlined';
-import VideocamOffOutlinedIcon from '@mui/icons-material/VideocamOffOutlined';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import { useMemo } from 'react';
-import { formatNumber } from '../Sidebar/helpers/numberHelpers';
-
-export interface ChannelListProps {
-  channels: ChannelDetail[];
-  selectedChannel: string;
-  setSelectedChannel: (channel: ChannelDetail) => void;
-}
+import { ChannelListProps } from './types';
+import SecondaryText from './SecondaryText';
 
 const listItemSx: SxProps<Theme> = {
   borderRadius: 2,
   height: (theme) => theme.spacing(7),
-};
-
-const viewerSx: SxProps<Theme> = {
-  display: 'flex',
-  alignItems: 'center',
-  gap: 1,
-};
-
-const iconSx: SxProps<Theme> = {
-  fontSize: 'medium',
 };
 
 const activeSx: SxProps<Theme> = {
@@ -45,46 +24,6 @@ const activeSx: SxProps<Theme> = {
   '&:hover': {
     backgroundColor: 'primary.main',
   },
-};
-
-const SecondaryText = (props: ChannelDetail & { active: boolean }) => {
-  const { online, live_viewers } = props;
-
-  const { color, icon, text } = useMemo(() => {
-    return {
-      text: online
-        ? `Live: ${formatNumber(live_viewers ?? 0)} viewers`
-        : 'Offline',
-      color: online ? 'success' : 'text.secondary',
-      icon: online ? (
-        <VideocamOutlined
-          color="success"
-          sx={iconSx}
-        />
-      ) : (
-        <VideocamOffOutlinedIcon
-          color="error"
-          sx={iconSx}
-        />
-      ),
-    };
-  }, [online, live_viewers]);
-
-  return (
-    <Box
-      component={'span'}
-      sx={viewerSx}
-    >
-      {icon}
-      <Typography
-        variant="caption"
-        color={color}
-        lineHeight={'normal'}
-      >
-        {text}
-      </Typography>
-    </Box>
-  );
 };
 
 const ChannelList = (props: ChannelListProps) => {
@@ -116,7 +55,6 @@ const ChannelList = (props: ChannelListProps) => {
             secondary={
               <SecondaryText
                 {...channel}
-                active={selectedChannel === channel?.name}
               />
             }
           />
