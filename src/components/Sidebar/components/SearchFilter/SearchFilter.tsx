@@ -1,10 +1,10 @@
 import SearchRounded from '@mui/icons-material/SearchRounded';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { useState } from 'react';
 import { SearchFilterProps } from './types';
 import { SxProps, Theme } from '@mui/material/styles';
-import { Button, ButtonGroup } from '@mui/material';
+import { Badge, Button, ButtonGroup } from '@mui/material';
+import { ChannelFilter } from '../../types';
 
 const rootSx: SxProps<Theme> = {
   display: 'flex',
@@ -12,12 +12,10 @@ const rootSx: SxProps<Theme> = {
   gap: 2,
 };
 
-const FILTER_OPTIONS = ['All', 'Online', 'Offline'];
+const FILTER_OPTIONS: ChannelFilter[] = ['All', 'Online', 'Offline'];
 
 const SearchFilter = (props: SearchFilterProps) => {
-  const {} = props;
-  const [search, setSearch] = useState('');
-  const [filter, setFilter] = useState('All');
+  const { filter, setFilter, search, setSearch, channelCount } = props;
 
   return (
     <Box sx={rootSx}>
@@ -39,8 +37,20 @@ const SearchFilter = (props: SearchFilterProps) => {
             key={option}
             onClick={() => setFilter(option)}
             variant={filter === option ? 'contained' : 'outlined'}
+            sx={{
+              '& .MuiBadge-badge': {
+                border: `1px solid`,
+                backgroundColor: 'common.white',
+                color: 'primary.main',
+              },
+            }}
           >
-            {option}
+            {filter === option ? (
+              <Badge badgeContent={channelCount}>{option}</Badge>
+            ) : (
+              option
+            )}
+            {/* {option} */}
           </Button>
         ))}
       </ButtonGroup>

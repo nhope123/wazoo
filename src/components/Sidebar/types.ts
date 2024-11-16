@@ -11,6 +11,9 @@ export interface Stream {
     banner: string | null;
   };
   game: string;
+  preview: {
+    large: string;
+  };
 }
 
 export interface Links {
@@ -34,4 +37,13 @@ export interface ChannelDetail {
   followers?: number;
   logo?: string;
   banner?: string;
+}
+
+export type ChannelFilter = 'All' | 'Online' | 'Offline';
+
+export interface SidebarProps {
+  selectedChannel: string;
+  isSidebarOpen: boolean;
+  setSidebarOpen: (open: boolean) => void;
+  setChannel: (channel: ChannelDetail) => void;
 }

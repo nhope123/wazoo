@@ -13,20 +13,40 @@ import { useMemo } from 'react';
 
 export interface ChannelListProps {
   channels: ChannelDetail[];
+  selectedChannel: string;
+  setSelectedChannel: (channel: ChannelDetail) => void;
 }
 
 const listItemSx: SxProps<Theme> = {
   borderRadius: 2,
-  boxShadow: 1,
+  height: (theme) => theme.spacing(7),
 };
 
 const viewerSx: SxProps<Theme> = {
   display: 'flex',
-  alignItems: 'flex-end',
+  alignItems: 'center',
   gap: 1,
 };
 
-const SecondaryText = (props: ChannelDetail) => {
+const iconSx: SxProps<Theme> = {
+  fontSize: 'medium',
+};
+
+const activeSx: SxProps<Theme> = {
+  backgroundColor: 'primary.light',
+  color: 'primary.contrastText',
+  '& .MuiSvgIcon-root': {
+    color: 'primary.contrastText',
+  },
+  '& .MuiTypography-caption': {
+    color: 'primary.contrastText',
+  },
+  '&:hover': {
+    backgroundColor: 'primary.main',
+  },
+};
+
+const SecondaryText = (props: ChannelDetail & { active: boolean }) => {
   const { online, live_viewers } = props;
 
   const { color, icon, text } = useMemo(() => {
@@ -34,19 +54,29 @@ const SecondaryText = (props: ChannelDetail) => {
       text: online ? `Live: ${live_viewers} viewers` : 'Offline',
       color: online ? 'success' : 'text.secondary',
       icon: online ? (
-        <VideocamOutlined color="success" />
+        <VideocamOutlined
+          color="success"
+          sx={iconSx}
+        />
       ) : (
-        <VideocamOffOutlinedIcon color="error" />
+        <VideocamOffOutlinedIcon
+          color="error"
+          sx={iconSx}
+        />
       ),
     };
   }, [online, live_viewers]);
-  
+
   return (
-    <Box sx={viewerSx}>
+    <Box
+      component={'span'}
+      sx={viewerSx}
+    >
       {icon}
       <Typography
         variant="caption"
         color={color}
+        lineHeight={'normal'}
       >
         {text}
       </Typography>
@@ -55,20 +85,37 @@ const SecondaryText = (props: ChannelDetail) => {
 };
 
 const ChannelList = (props: ChannelListProps) => {
-  const { channels } = props;
+  const { channels, selectedChannel, setSelectedChannel } = props;
+
   return (
-    <List>
+    <List sx={{ overflowY: 'auto' }}>
       {channels.map((channel) => (
         <ListItemButton
           key={channel?.id}
-          sx={listItemSx}
+          sx={{
+            ...listItemSx,
+            ...(selectedChannel === channel?.name ? activeSx : {}),
+          }}
+          onClick={() => setSelectedChannel(channel)}
         >
           <ListItemAvatar>
-            <Avatar src={channel.logo} />
+            <Avatar
+              src={channel.logo}
+              sx={{
+                width: (theme) => theme.spacing(4),
+                height: (theme) => theme.spacing(4),
+              }}
+            />
           </ListItemAvatar>
           <ListItemText
+            sx={{ height: (theme) => theme.spacing(5), m: 0 }}
             primary={channel.name}
-            secondary={<SecondaryText {...channel} />}
+            secondary={
+              <SecondaryText
+                {...channel}
+                active={selectedChannel === channel?.name}
+              />
+            }
           />
         </ListItemButton>
       ))}

@@ -1,5 +1,6 @@
 import { v4 as uid } from 'uuid';
 import { ChannelData, ChannelDetail } from './types';
+import { offlineBanner } from '../../assets';
 
 const defaultBanner =
   'https://s3.envato.com/files/156884535/Game_Background_Emerald_Lake_4270x2135.jpg';
@@ -8,11 +9,17 @@ const mapChannelToDetail = (user_data: ChannelData): ChannelDetail => {
   if (!user_data.stream) {
     const channel = user_data._links.channel.split('/');
     const name = channel[channel.length - 1];
-    return { online: false, name, link: user_data._links.channel, id: uid() };
+    return {
+      online: false,
+      name,
+      link: user_data._links.channel,
+      id: uid(),
+      banner: offlineBanner,
+    };
   }
 
   const { stream } = user_data;
-  const { channel } = stream;
+  const { channel, preview } = stream;
   return {
     id: stream._id,
     live_viewers: stream.viewers,
@@ -24,7 +31,7 @@ const mapChannelToDetail = (user_data: ChannelData): ChannelDetail => {
     views: channel.views,
     followers: channel.followers,
     logo: channel.logo,
-    banner: channel.banner || defaultBanner,
+    banner: preview?.large || defaultBanner,
   };
 };
 

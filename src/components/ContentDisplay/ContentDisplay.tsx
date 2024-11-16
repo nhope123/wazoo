@@ -1,9 +1,11 @@
 import Container from '@mui/material/Container';
 import Grid2 from '@mui/material/Grid2';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import ChannelDisplay from '../ChannelDisplay/ChannelDisplay';
 import { SxProps, Theme } from '@mui/material/styles';
+import { ChannelDetail } from '../Sidebar/types';
+import { ContentDisplayProps } from './types';
 
 const mainSx: SxProps<Theme> = {
   flexGrow: 1,
@@ -15,7 +17,9 @@ const mainSx: SxProps<Theme> = {
   maxWidth: '100%',
 };
 
-const ContentDisplay: FC = () => {
+const ContentDisplay: FC<ContentDisplayProps> = (props) => {
+  const { isSidebarOpen, setDrawerOpenState } = props;
+  const [channelDetail, setChannelDetail] = useState<ChannelDetail>();
   return (
     <Container
       maxWidth="lg"
@@ -28,8 +32,13 @@ const ContentDisplay: FC = () => {
         spacing={1}
         sx={[mainSx, { height: '100%' }]}
       >
-        <Sidebar />
-        <ChannelDisplay />
+        <Sidebar
+          isSidebarOpen={isSidebarOpen}
+          setSidebarOpen={setDrawerOpenState}
+          selectedChannel={channelDetail?.name as string}
+          setChannel={setChannelDetail}
+        />
+        <ChannelDisplay channel={channelDetail} />
       </Grid2>
     </Container>
   );

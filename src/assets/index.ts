@@ -1,2 +1,3 @@
 import logo from './blue-logo.png';
-export { logo };
+import offlineBanner from './offline_banner.png';
+export { logo, offlineBanner };
