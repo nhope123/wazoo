@@ -27,6 +27,7 @@ const SidebarContent = (props: SidebarContentProps) => {
 
   return (
     <Grid2
+      data-testid="sidebar"
       size={4}
       sx={{ ...rootSx, ...(sx as SxProps<Theme>) }}
     >

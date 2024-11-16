@@ -29,8 +29,11 @@ const activeSx: SxProps<Theme> = {
 const ChannelList = (props: ChannelListProps) => {
   const { channels, selectedChannel, setSelectedChannel } = props;
 
+  console.log('channels', channels);
+  
+
   return (
-    <List sx={{ overflowY: 'auto' }}>
+    <List data-testid='channel-list' sx={{ overflowY: 'auto' }}>
       {channels.map((channel) => (
         <ListItemButton
           key={channel?.id}

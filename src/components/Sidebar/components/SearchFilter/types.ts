@@ -1,6 +1,6 @@
 import { SxProps, Theme } from '@mui/material/styles';
-import { ChannelListProps } from '../../../ChannelList/ChannelList';
 import { ChannelFilter } from '../../types';
+import { ChannelListProps } from '../../../ChannelList/types';
 
 export interface SearchFilterProps {
   channelCount: number;

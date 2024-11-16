@@ -30,10 +30,10 @@ const Sidebar: FC<SidebarProps> = (props) => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   useEffect(() => {
-    if (!isMobile) {
+    if (!isMobile && isSidebarOpen) {
       setSidebarOpen(false);
     }
-  }, [isMobile, setSidebarOpen, theme.breakpoints]);
+  }, [isMobile, isSidebarOpen, setSidebarOpen, theme.breakpoints]);
 
   useEffect(() => {
     const data: ChannelDetail[] = [];

@@ -1,6 +1,6 @@
 import { v4 as uid } from 'uuid';
-import { ChannelData, ChannelDetail } from './types';
-import { offlineBanner } from '../../assets';
+import { ChannelData, ChannelDetail } from '../types';
+import { offlineBanner } from '../../../assets';
 
 const defaultBanner =
   'https://s3.envato.com/files/156884535/Game_Background_Emerald_Lake_4270x2135.jpg';

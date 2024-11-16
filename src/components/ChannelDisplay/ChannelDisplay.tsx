@@ -68,6 +68,7 @@ const ChannelDisplay: FC<ChannelDisplayProps> = (props) => {
 
   return (
     <Grid2
+      data-testid="channel-display"
       size={{ xs: 12, md: 8 }}
       sx={rootSx}
     >

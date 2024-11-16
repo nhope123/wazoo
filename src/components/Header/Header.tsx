@@ -3,7 +3,6 @@ import Container from '@mui/material/Container';
 import { SxProps, Theme } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import { FC } from 'react';
-import { Branding } from '../../components';
 import IconButton from '@mui/material/IconButton';
 import MenuRounded from '@mui/icons-material/MenuRounded';
 import { HeaderProps } from './types';
@@ -11,6 +10,7 @@ import CloseRounded from '@mui/icons-material/CloseRounded';
 import { Box } from '@mui/material';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import NightlightRounded from '@mui/icons-material/NightlightRounded';
+import Branding from './components/Branding/Branding';
 
 const rootSx: SxProps<Theme> = {
   backgroundColor: 'background.paper',
