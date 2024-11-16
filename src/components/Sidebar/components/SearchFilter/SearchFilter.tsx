@@ -18,7 +18,7 @@ const buttonSx: SxProps<Theme> = {
     backgroundColor: 'common.white',
     color: 'primary.main',
   },
-}
+};
 
 const FILTER_OPTIONS: ChannelFilter[] = ['All', 'Online', 'Offline'];
 

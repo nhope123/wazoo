@@ -30,10 +30,12 @@ const ChannelList = (props: ChannelListProps) => {
   const { channels, selectedChannel, setSelectedChannel } = props;
 
   // console.log('channels', channels);
-  
 
   return (
-    <List data-testid='channel-list' sx={{ overflowY: 'auto' }}>
+    <List
+      data-testid="channel-list"
+      sx={{ overflowY: 'auto' }}
+    >
       {channels.map((channel) => (
         <ListItemButton
           key={channel?.id}
@@ -55,11 +57,7 @@ const ChannelList = (props: ChannelListProps) => {
           <ListItemText
             sx={{ height: (theme) => theme.spacing(5), m: 0 }}
             primary={channel.name}
-            secondary={
-              <SecondaryText
-                {...channel}
-              />
-            }
+            secondary={<SecondaryText {...channel} />}
           />
         </ListItemButton>
       ))}

@@ -1,4 +1,13 @@
-import { describe, expect, fireEvent, it, render, screen, vi, within } from '../../test/vitest-setup';
+import {
+  describe,
+  expect,
+  fireEvent,
+  it,
+  render,
+  screen,
+  vi,
+  within,
+} from '../../test/vitest-setup';
 import ContentDisplay from './ContentDisplay';
 import { rawChannels } from '../../test/testData';
 import axios from 'axios';
@@ -15,33 +24,58 @@ import axios from 'axios';
 // 1. Mock the axios.get method
 // 2. Simulate a channel selection - mock the Sidebar component
 describe('ContentDisplay Component', () => {
-
   it('should render without error', async () => {
     // vi.spyOn(axios, 'get').mockResolvedValue({ data: rawChannels });
-    expect(() => render(<ContentDisplay isSidebarOpen={false} setDrawerOpenState={() => {}} />)).not.toThrow();
+    expect(() =>
+      render(
+        <ContentDisplay
+          isSidebarOpen={false}
+          setDrawerOpenState={() => {}}
+        />,
+      ),
+    ).not.toThrow();
   });
 
   it('should render Sidebar component', async () => {
-    render(<ContentDisplay isSidebarOpen={false} setDrawerOpenState={() => {}} />);
+    render(
+      <ContentDisplay
+        isSidebarOpen={false}
+        setDrawerOpenState={() => {}}
+      />,
+    );
     const sidebar = screen.getByTestId('sidebar');
     expect(sidebar).toBeInTheDocument();
   });
 
   it('should render ChannelDisplay component', async () => {
-    render(<ContentDisplay isSidebarOpen={false} setDrawerOpenState={() => {}} />);
+    render(
+      <ContentDisplay
+        isSidebarOpen={false}
+        setDrawerOpenState={() => {}}
+      />,
+    );
     const channelDisplay = screen.getByTestId('channel-display');
     expect(channelDisplay).toBeInTheDocument();
   });
 
   it('should handle setDrawerOpenState function', async () => {
     const mockSetDrawerOpenState = vi.fn();
-    render(<ContentDisplay isSidebarOpen={false} setDrawerOpenState={mockSetDrawerOpenState} />);
+    render(
+      <ContentDisplay
+        isSidebarOpen={false}
+        setDrawerOpenState={mockSetDrawerOpenState}
+      />,
+    );
     expect(mockSetDrawerOpenState).not.toHaveBeenCalled();
   });
 
   it('should update channel detail state', async () => {
-
-    render(<ContentDisplay isSidebarOpen={false} setDrawerOpenState={() => { } } />);
+    render(
+      <ContentDisplay
+        isSidebarOpen={false}
+        setDrawerOpenState={() => {}}
+      />,
+    );
     const list = screen.getByTestId('channel-list');
     expect(list).toBeInTheDocument();
     expect(within(list).getAllByRole('button')).toHaveLength(3);

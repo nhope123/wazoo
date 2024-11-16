@@ -45,7 +45,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
           raw.push(response.data);
           data.push(mapChannelToDetail(response.data));
         });
-       setChannels(data);
+        setChannels(data);
         setChannel(data[0]);
       })
       .catch((err) => console.log(`error: ${err}`));

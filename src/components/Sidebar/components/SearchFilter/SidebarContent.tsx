@@ -30,21 +30,21 @@ const SidebarContent = (props: SidebarContentProps) => {
     <Grid2
       data-testid="sidebar"
       size={4}
-      sx={{ height: '100%',  ...(sx as SxProps<Theme>) }}
+      sx={{ height: '100%', ...(sx as SxProps<Theme>) }}
     >
       <Card sx={rootSx}>
-      <SearchFilter
-        filter={filter}
-        setFilter={setFilter}
-        search={search}
-        setSearch={(d) => setSearch(d ?? '')}
-        channelCount={channels.length}
-      />
-      <ChannelList
-        selectedChannel={selectedChannel}
-        channels={channels}
-        setSelectedChannel={setSelectedChannel}
-      />
+        <SearchFilter
+          filter={filter}
+          setFilter={setFilter}
+          search={search}
+          setSearch={(d) => setSearch(d ?? '')}
+          channelCount={channels.length}
+        />
+        <ChannelList
+          selectedChannel={selectedChannel}
+          channels={channels}
+          setSelectedChannel={setSelectedChannel}
+        />
       </Card>
     </Grid2>
   );

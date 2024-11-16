@@ -1,4 +1,13 @@
-import { render, screen, fireEvent, describe, vi, it, expect, within } from '../../../../test/vitest-setup';
+import {
+  render,
+  screen,
+  fireEvent,
+  describe,
+  vi,
+  it,
+  expect,
+  within,
+} from '../../../../test/vitest-setup';
 import { ChannelDetail } from '../../types';
 import SidebarContent from './SidebarContent';
 import { SidebarContentProps } from './types';
@@ -30,7 +39,12 @@ describe('SidebarContent Component', () => {
 
   it('should apply custom styles from sx prop', () => {
     const customSx = { backgroundColor: 'rgb(255, 0, 0)' };
-    render(<SidebarContent {...defaultProps} sx={customSx} />);
+    render(
+      <SidebarContent
+        {...defaultProps}
+        sx={customSx}
+      />,
+    );
     const sidebar = screen.getByTestId('sidebar');
     expect(sidebar).toHaveStyle('background-color: rgb(255, 0, 0)');
   });
@@ -53,7 +67,10 @@ describe('SidebarContent Component', () => {
     render(<SidebarContent {...defaultProps} />);
     const channelButton = screen.getByText('Channel 1');
     fireEvent.click(channelButton);
-    expect(mockSetSelectedChannel).toHaveBeenCalledWith({ id: 1, name: 'Channel 1' });
+    expect(mockSetSelectedChannel).toHaveBeenCalledWith({
+      id: 1,
+      name: 'Channel 1',
+    });
   });
 
   it('should display the correct number of channels', () => {

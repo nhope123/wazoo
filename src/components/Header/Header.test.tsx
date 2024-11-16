@@ -1,4 +1,12 @@
-import { describe, expect, fireEvent, it, render, screen, vi } from '../../test/vitest-setup';
+import {
+  describe,
+  expect,
+  fireEvent,
+  it,
+  render,
+  screen,
+  vi,
+} from '../../test/vitest-setup';
 import Header from './Header';
 import { HeaderProps } from './types';
 
@@ -28,12 +36,22 @@ describe('Header Component', () => {
   });
 
   it('should display CloseRounded icon when drawer is open', () => {
-    render(<Header {...defaultProps} isDrawerStateOpen={true} />);
+    render(
+      <Header
+        {...defaultProps}
+        isDrawerStateOpen={true}
+      />,
+    );
     expect(screen.getByTestId('CloseRoundedIcon')).toBeInTheDocument();
   });
 
   it('should display MenuRounded icon when drawer is closed', () => {
-    render(<Header {...defaultProps} isDrawerStateOpen={false} />);
+    render(
+      <Header
+        {...defaultProps}
+        isDrawerStateOpen={false}
+      />,
+    );
     expect(screen.getByTestId('MenuRoundedIcon')).toBeInTheDocument();
   });
 
@@ -45,12 +63,22 @@ describe('Header Component', () => {
   });
 
   it('should display LightModeOutlinedIcon when mode is light', () => {
-    render(<Header {...defaultProps} mode="light" />);
+    render(
+      <Header
+        {...defaultProps}
+        mode="light"
+      />,
+    );
     expect(screen.getByTestId('LightModeOutlinedIcon')).toBeInTheDocument();
   });
 
   it('should display NightlightRounded icon when mode is dark', () => {
-    render(<Header {...defaultProps} mode="dark" />);
+    render(
+      <Header
+        {...defaultProps}
+        mode="dark"
+      />,
+    );
     expect(screen.getByTestId('NightlightRoundedIcon')).toBeInTheDocument();
   });
 });

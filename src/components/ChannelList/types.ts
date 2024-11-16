@@ -1,4 +1,4 @@
-import { ChannelDetail } from "../Sidebar/types";
+import { ChannelDetail } from '../Sidebar/types';
 
 export interface ChannelListProps {
   channels: ChannelDetail[];

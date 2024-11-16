@@ -1,4 +1,12 @@
-import { render, screen, fireEvent, describe, vi, it, expect } from '../../../../test/vitest-setup';
+import {
+  render,
+  screen,
+  fireEvent,
+  describe,
+  vi,
+  it,
+  expect,
+} from '../../../../test/vitest-setup';
 import SearchFilter from './SearchFilter';
 import { SearchFilterProps } from './types';
 
@@ -34,19 +42,34 @@ describe('SearchFilter Component', () => {
   });
 
   it('should display the correct filter button as contained', () => {
-    render(<SearchFilter {...defaultProps} filter="Online" />);
+    render(
+      <SearchFilter
+        {...defaultProps}
+        filter="Online"
+      />,
+    );
     const onlineButton = screen.getByText('Online').parentElement;
     expect(onlineButton).toHaveClass('MuiButton-contained');
   });
 
   it('should display the correct badge content', () => {
-    render(<SearchFilter {...defaultProps} filter="All" />);
+    render(
+      <SearchFilter
+        {...defaultProps}
+        filter="All"
+      />,
+    );
     const allButton = screen.getByText('All');
     expect(allButton).toHaveTextContent('5');
   });
 
   it('should not display badge content for non-selected filters', () => {
-    render(<SearchFilter {...defaultProps} filter="Online" />);
+    render(
+      <SearchFilter
+        {...defaultProps}
+        filter="Online"
+      />,
+    );
     const offlineButton = screen.getByText('Offline');
     expect(offlineButton).not.toHaveTextContent('5');
   });

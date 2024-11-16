@@ -1,5 +1,5 @@
 export interface Stream {
-  _id: string;
+  _id: string | number;
   viewers: number;
   channel: {
     url: string;
