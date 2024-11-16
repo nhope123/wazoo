@@ -1,14 +1,15 @@
+import VerifiedRoundedIcon from '@mui/icons-material/VerifiedRounded';
+import Avatar from '@mui/material/Avatar';
+import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Grid2 from '@mui/material/Grid2';
 import { SxProps, Theme } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import { FC, useMemo } from 'react';
 import { ChannelDisplayProps } from './types';
-import CardContent from '@mui/material/CardContent';
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import VerifiedRoundedIcon from '@mui/icons-material/VerifiedRounded';
+import { formatNumber } from '../Sidebar/helpers/numberHelpers';
 
 const rootSx: SxProps<Theme> = {
   height: '100%',
@@ -36,15 +37,26 @@ const cardContentSx: SxProps<Theme> = {
   gap: 1,
 };
 
-const formatNumber = (number: number) => {
-  if (number < 1000) return number;
-  if (number < 1000000) return (number / 1000).toFixed(1) + 'k';
-  return (number / 1000000).toFixed(1) + 'm';
+const lefContainerSx: SxProps<Theme> = {
+  display: 'flex',
+  flexDirection: 'column',
+  flexGrow: 1,
+};
+
+const verifySx: SxProps<Theme> = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: 1,
+};
+
+const viewWrapSx: SxProps<Theme> = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
 };
 
 const ChannelDisplay: FC<ChannelDisplayProps> = (props) => {
   const { channel } = props;
-
   const viewers = useMemo(() => {
     return [
       { name: 'Followers', value: formatNumber(channel?.followers ?? 0) },
@@ -67,25 +79,11 @@ const ChannelDisplay: FC<ChannelDisplayProps> = (props) => {
             aspectRatio: '16 / 9',
           }}
         />
-        <CardContent
-          sx={cardContentSx}
-        >
+        <CardContent sx={cardContentSx}>
           <Box sx={contentSx}>
             <Avatar src={channel?.logo} />
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                flexGrow: 1,
-              }}
-            >
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 1,
-                }}
-              >
+            <Box sx={lefContainerSx}>
+              <Box sx={verifySx}>
                 <Typography
                   component={'a'}
                   href={channel?.link}
@@ -108,9 +106,7 @@ const ChannelDisplay: FC<ChannelDisplayProps> = (props) => {
             <Box
               sx={{
                 visibility: channel?.online ? 'visible' : 'hidden',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
+                ...viewWrapSx,
               }}
             >
               {viewers.map((viewer) => (

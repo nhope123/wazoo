@@ -27,8 +27,6 @@ const iconSx: SxProps<Theme> = {
 const Header: FC<HeaderProps> = (props) => {
   const { isDrawerStateOpen, setDrawerOpenState, mode, setMode } = props;
 
- 
-
   return (
     <AppBar sx={rootSx}>
       <Container maxWidth="lg">

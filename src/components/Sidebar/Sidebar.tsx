@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import mapChannelToDetail from './mapChannelToDetail';
 import { ChannelDetail, ChannelFilter, SidebarProps } from './types';
 import Drawer from '@mui/material/Drawer';
 import SidebarContent from './components/SearchFilter/SidebarContent';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import mapChannelToDetail from './helpers/mapChannelToDetail';
 
 const userList = [
   'ESL_SC2',
@@ -45,7 +45,8 @@ const Sidebar: FC<SidebarProps> = (props) => {
           raw.push(response.data);
           data.push(mapChannelToDetail(response.data));
         });
-        
+        console.log('data', data);
+
         setChannels(data);
         setChannel(data[0]);
       })

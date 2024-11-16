@@ -26,7 +26,7 @@ export interface ChannelData {
 }
 
 export interface ChannelDetail {
-  id: string;
+  id: number | string;
   online: boolean;
   name: string;
   link: string;

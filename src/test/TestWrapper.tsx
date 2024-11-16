@@ -1,6 +1,6 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { FC } from 'react';
-import theme from '../customTheme';
+import themes from '../customTheme';
 import { TestWrapperProps } from './types';
 
 const TestWrapper: FC<TestWrapperProps> = (props) => {
@@ -8,7 +8,7 @@ const TestWrapper: FC<TestWrapperProps> = (props) => {
   return (
     <>
       <CssBaseline />
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={themes.light}>{children}</ThemeProvider>
     </>
   );
 };

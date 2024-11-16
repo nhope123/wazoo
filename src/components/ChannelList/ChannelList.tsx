@@ -10,6 +10,7 @@ import VideocamOffOutlinedIcon from '@mui/icons-material/VideocamOffOutlined';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useMemo } from 'react';
+import { formatNumber } from '../Sidebar/helpers/numberHelpers';
 
 export interface ChannelListProps {
   channels: ChannelDetail[];
@@ -51,7 +52,9 @@ const SecondaryText = (props: ChannelDetail & { active: boolean }) => {
 
   const { color, icon, text } = useMemo(() => {
     return {
-      text: online ? `Live: ${live_viewers} viewers` : 'Offline',
+      text: online
+        ? `Live: ${formatNumber(live_viewers ?? 0)} viewers`
+        : 'Offline',
       color: online ? 'success' : 'text.secondary',
       icon: online ? (
         <VideocamOutlined
