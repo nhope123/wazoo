@@ -44,6 +44,7 @@ const ChannelList = (props: ChannelListProps) => {
             ...(selectedChannel === channel?.name ? activeSx : {}),
           }}
           onClick={() => setSelectedChannel(channel)}
+          title={`Select ${channel.name}`}
         >
           <ListItemAvatar>
             <Avatar

@@ -27,7 +27,7 @@ const viewerSx: SxProps<Theme> = {
   gap: 1,
   justifyContent: 'space-between',
   '& .MuiTypography-root': {
-    fontSize: '0.65rem',
+    fontSize: '0.70rem',
   },
 };
 
@@ -118,7 +118,7 @@ const ChannelDisplay: FC<ChannelDisplayProps> = (props) => {
                   sx={viewerSx}
                 >
                   <Typography>{viewer.name}</Typography>
-                  <Typography color={'primary'}>{viewer.value}</Typography>
+                  <Typography fontWeight={600} color={'primary'}>{viewer.value}</Typography>
                 </Box>
               ))}
             </Box>

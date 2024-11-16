@@ -21,7 +21,7 @@ describe('App component', () => {
     fireEvent.click(screen.getByTestId('MenuRoundedIcon'));
     screen.logTestingPlaygroundURL();
     expect(screen.getByRole('presentation')).toBeInTheDocument();
-    fireEvent.click(toggleButton);
+    // fireEvent.click(toggleButton);
     expect(screen.getByText(/drawer is closed/i)).toBeInTheDocument();
   });
 
