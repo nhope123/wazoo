@@ -27,7 +27,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
   const [search, setSearch] = useState<string>('');
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   useEffect(() => {
     if (!isMobile && isSidebarOpen) {
@@ -102,6 +102,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
             borderRadius: '0 4px 0 0',
             maxWidth: (theme) => theme.spacing(43),
             width: '80%',
+            backgroundColor: 'background.paper',
           },
         }}
         sx={{ display: { xs: 'block', md: 'none' } }}

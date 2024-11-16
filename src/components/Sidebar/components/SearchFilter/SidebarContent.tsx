@@ -3,6 +3,7 @@ import { SidebarContentProps } from './types';
 import SearchFilter from './SearchFilter';
 import ChannelList from '../../../ChannelList/ChannelList';
 import { SxProps, Theme } from '@mui/material/styles';
+import Card from '@mui/material/Card';
 
 const rootSx: SxProps<Theme> = {
   display: 'flex',
@@ -11,6 +12,7 @@ const rootSx: SxProps<Theme> = {
   height: '100%',
   p: 2,
   boxShadow: 5,
+  // backgroundColor: theme => `${theme.palette.background.default} !important`,
 };
 
 const SidebarContent = (props: SidebarContentProps) => {
@@ -29,8 +31,9 @@ const SidebarContent = (props: SidebarContentProps) => {
     <Grid2
       data-testid="sidebar"
       size={4}
-      sx={{ ...rootSx, ...(sx as SxProps<Theme>) }}
+      sx={{ height: '100%',  ...(sx as SxProps<Theme>) }}
     >
+      <Card sx={rootSx}>
       <SearchFilter
         filter={filter}
         setFilter={setFilter}
@@ -43,6 +46,7 @@ const SidebarContent = (props: SidebarContentProps) => {
         channels={channels}
         setSelectedChannel={setSelectedChannel}
       />
+      </Card>
     </Grid2>
   );
 };

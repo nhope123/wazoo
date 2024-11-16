@@ -7,10 +7,6 @@ import {
 import Branding from './Branding';
 
 describe('Branding Component', () => {
-  // it('should not throw an error', async () => {
-  //   expect(() => render(<Branding />)).not.toThrowError();
-  // });
-
   it('should render the logo', () => {
     const { getByRole } = render(<Branding />);
 

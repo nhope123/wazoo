@@ -1,10 +1,10 @@
-import { Header } from '@components';
 import Box from '@mui/material/Box';
 import { SxProps, Theme, ThemeProvider } from '@mui/material/styles';
 import ContentDisplay from './components/ContentDisplay/ContentDisplay';
 import { useCallback, useState } from 'react';
 import themes from './customTheme';
 import { useLocalStorage } from 'usehooks-ts';
+import Header from './components/Header/Header';
 
 const rootSx: SxProps<Theme> = {
   display: 'flex',
