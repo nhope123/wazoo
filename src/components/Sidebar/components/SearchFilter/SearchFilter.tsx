@@ -12,6 +12,14 @@ const rootSx: SxProps<Theme> = {
   gap: 2,
 };
 
+const buttonSx: SxProps<Theme> = {
+  '& .MuiBadge-badge': {
+    border: `1px solid`,
+    backgroundColor: 'common.white',
+    color: 'primary.main',
+  },
+}
+
 const FILTER_OPTIONS: ChannelFilter[] = ['All', 'Online', 'Offline'];
 
 const SearchFilter = (props: SearchFilterProps) => {
@@ -37,20 +45,13 @@ const SearchFilter = (props: SearchFilterProps) => {
             key={option}
             onClick={() => setFilter(option)}
             variant={filter === option ? 'contained' : 'outlined'}
-            sx={{
-              '& .MuiBadge-badge': {
-                border: `1px solid`,
-                backgroundColor: 'common.white',
-                color: 'primary.main',
-              },
-            }}
+            sx={buttonSx}
           >
             {filter === option ? (
               <Badge badgeContent={channelCount}>{option}</Badge>
             ) : (
               option
             )}
-            {/* {option} */}
           </Button>
         ))}
       </ButtonGroup>

@@ -12,7 +12,6 @@ const rootSx: SxProps<Theme> = {
   height: '100%',
   p: 2,
   boxShadow: 5,
-  // backgroundColor: theme => `${theme.palette.background.default} !important`,
 };
 
 const SidebarContent = (props: SidebarContentProps) => {
