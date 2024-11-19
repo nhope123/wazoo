@@ -1,31 +1,29 @@
-import {
-  describe,
-  expect,
-  fireEvent,
-  it,
-  render,
-  screen,
-  vi,
-  within,
-} from '../../test/vitest-setup';
+import { fireEvent, render, screen } from '../../test/vitest-setup';
 import ContentDisplay from './ContentDisplay';
-import { rawChannels } from '../../test/testData';
-import axios from 'axios';
+import { cleanChannelOnline, rawChannels } from '../../test/testData';
+import { describe, expect, it, vi } from 'vitest';
 
-// vi.mock('axios'); // , async (importOriginal) => {
-//   const mod = await importOriginal<typeof axios>();
-//   return {
-//     ...mod,
-//     get: vi.fn(),
-//   };
-// });
+vi.mock('axios', () => ({
+  get: vi.fn().mockResolvedValue({ data: rawChannels }),
+}));
 
-// TODO: Fix the test
-// 1. Mock the axios.get method
-// 2. Simulate a channel selection - mock the Sidebar component
+vi.mock('../Sidebar/Sidebar', () => ({
+  __esModule: true,
+  default: ({ setChannel }: { setChannel: (channel: any) => void }) => (
+    <div data-testid="sidebar">
+      <button
+        type="button"
+        data-testid="channel-list"
+        onClick={() => setChannel(cleanChannelOnline)}
+      >
+        Select Channel
+      </button>
+    </div>
+  ),
+}));
+
 describe('ContentDisplay Component', () => {
   it('should render without error', async () => {
-    // vi.spyOn(axios, 'get').mockResolvedValue({ data: rawChannels });
     expect(() =>
       render(
         <ContentDisplay
@@ -78,12 +76,10 @@ describe('ContentDisplay Component', () => {
     );
     const list = screen.getByTestId('channel-list');
     expect(list).toBeInTheDocument();
-    expect(within(list).getAllByRole('button')).toHaveLength(3);
-    screen.logTestingPlaygroundURL();
-    // fireEvent.click(screen.getByText('test-channel'));
-    // Simulate a channel selection
-    // Assuming Sidebar component has a method to select a channel
-    // sidebar.selectChannel('test-channel');
-    // expect(screen.getByText('test-channel')).toBeInTheDocument();
+
+    fireEvent.click(list);
+    expect(screen.getByText(cleanChannelOnline.name)).toBeInTheDocument();
+    expect(screen.getByText(cleanChannelOnline.status)).toBeInTheDocument();
+    expect(screen.getByText(/starcraft ii/i)).toBeInTheDocument();
   });
 });

@@ -1,15 +1,8 @@
 import { cleanChannelOffline, cleanChannelOnline } from '../../test/testData';
-import {
-  describe,
-  expect,
-  fireEvent,
-  it,
-  render,
-  screen,
-  vi,
-} from '../../test/vitest-setup';
+import { fireEvent, render, screen } from '../../test/vitest-setup';
 import ChannelList from './ChannelList';
 import { ChannelListProps } from './types';
+import { describe, expect, it, vi } from 'vitest';
 
 const renderComponent = (props: Partial<ChannelListProps> = {}) => {
   const defaultProps: ChannelListProps = {

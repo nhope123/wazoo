@@ -1,6 +1,7 @@
 import { cleanChannelOnline, cleanChannelOffline } from '../../test/testData';
-import { describe, expect, it, render, screen } from '../../test/vitest-setup';
+import { render, screen } from '../../test/vitest-setup';
 import ChannelDisplay from './ChannelDisplay';
+import { describe, expect, it } from 'vitest';
 
 describe('ChannelDisplay Component', () => {
   it('should render without error', async () => {

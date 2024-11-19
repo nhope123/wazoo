@@ -1,14 +1,7 @@
-import {
-  render,
-  screen,
-  fireEvent,
-  describe,
-  vi,
-  it,
-  expect,
-} from '../../../../test/vitest-setup';
+import { render, screen, fireEvent } from '../../../../test/vitest-setup';
 import SearchFilter from './SearchFilter';
 import { SearchFilterProps } from './types';
+import { describe, expect, it, vi } from 'vitest';
 
 describe('SearchFilter Component', () => {
   const mockSetFilter = vi.fn();

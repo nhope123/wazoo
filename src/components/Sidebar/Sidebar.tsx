@@ -41,10 +41,15 @@ const Sidebar: FC<SidebarProps> = (props) => {
 
     Promise.all(userList.map((username) => axios(`${TWITCH_URL}${username}`)))
       .then((res) => {
+        console.log('res: ', res);
+        
         res.forEach((response) => {
           raw.push(response.data);
+          console.log('map: ', mapChannelToDetail(response.data));
           data.push(mapChannelToDetail(response.data));
         });
+        console.log('data: ', data);
+        
         setChannels(data);
         setChannel(data[0]);
       })

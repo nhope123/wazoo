@@ -2,15 +2,12 @@ import {
   render,
   screen,
   fireEvent,
-  describe,
-  vi,
-  it,
-  expect,
   within,
 } from '../../../../test/vitest-setup';
 import { ChannelDetail } from '../../types';
 import SidebarContent from './SidebarContent';
 import { SidebarContentProps } from './types';
+import { describe, expect, it, vi } from 'vitest';
 
 describe('SidebarContent Component', () => {
   const mockSetFilter = vi.fn();

@@ -5,6 +5,7 @@ import VideocamOutlined from '@mui/icons-material/VideocamOutlined';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { ChannelDetail } from '../Sidebar/types';
+import VideocamOffOutlined from '@mui/icons-material/VideocamOffOutlined';
 
 const viewerSx: SxProps<Theme> = {
   display: 'flex',
@@ -31,7 +32,7 @@ const SecondaryText = (props: ChannelDetail) => {
           sx={iconSx}
         />
       ) : (
-        <VideocamOutlined
+        <VideocamOffOutlined
           color="error"
           sx={iconSx}
         />

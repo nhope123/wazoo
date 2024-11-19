@@ -1,12 +1,7 @@
 import { cleanChannelOffline, cleanChannelOnline } from '../../test/testData';
-import {
-  describe,
-  expect,
-  render,
-  screen,
-  test,
-} from '../../test/vitest-setup';
+import { render, screen } from '../../test/vitest-setup';
 import SecondaryText from './SecondaryText';
+import { describe, expect, test } from 'vitest';
 
 describe('SecondaryText Component', () => {
   test('renders "Offline" text when online is false', () => {
@@ -38,7 +33,7 @@ describe('SecondaryText Component', () => {
 
   test('renders error icon when online is false', () => {
     render(<SecondaryText {...cleanChannelOffline} />);
-    expect(screen.getByTestId('VideocamOutlinedIcon')).toHaveClass(
+    expect(screen.getByTestId('VideocamOffOutlinedIcon')).toHaveClass(
       'MuiSvgIcon-colorError',
     );
   });

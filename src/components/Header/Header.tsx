@@ -48,6 +48,7 @@ const Header: FC<HeaderProps> = (props) => {
           <Box sx={{ right: 0 }}>
             <IconButton
               onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}
+              title={`Switch to ${mode === 'light' ? 'dark' : 'light'} mode`}
             >
               {mode === 'light' ? (
                 <LightModeOutlinedIcon sx={{ color: 'warning.main' }} />

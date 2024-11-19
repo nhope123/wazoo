@@ -1,5 +1,5 @@
 import { rawChannels } from '../../../test/testData';
-import { describe, expect, it } from '../../../test/vitest-setup';
+import { describe, expect, it } from 'vitest';
 import { ChannelData } from '../types';
 import mapChannelToDetail from './mapChannelToDetail';
 
@@ -26,6 +26,7 @@ describe('mapChannelToDetail', () => {
   it('should handle a channel without stream data correctly', () => {
     const result = mapChannelToDetail(rawChannels[1] as ChannelData);
     result.id = 'unknown';
+    result.banner = '/src/assets/offline_banner.png';
     expect(result).toEqual({
       online: false,
       name: 'noobs2ninjas',

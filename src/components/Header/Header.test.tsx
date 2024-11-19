@@ -1,14 +1,7 @@
-import {
-  describe,
-  expect,
-  fireEvent,
-  it,
-  render,
-  screen,
-  vi,
-} from '../../test/vitest-setup';
+import { fireEvent, render, screen } from '../../test/vitest-setup';
 import Header from './Header';
 import { HeaderProps } from './types';
+import { describe, expect, it, vi } from 'vitest';
 
 describe('Header Component', () => {
   const mockSetDrawerOpenState = vi.fn();

@@ -1,10 +1,6 @@
-import {
-  describe,
-  expect,
-  it,
-  render,
-} from '../../../.../../../test/vitest-setup';
+import { render } from '../../../.../../../test/vitest-setup';
 import Branding from './Branding';
+import { describe, expect, it } from 'vitest';
 
 describe('Branding Component', () => {
   it('should render the logo', () => {

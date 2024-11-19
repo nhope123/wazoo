@@ -118,7 +118,12 @@ const ChannelDisplay: FC<ChannelDisplayProps> = (props) => {
                   sx={viewerSx}
                 >
                   <Typography>{viewer.name}</Typography>
-                  <Typography fontWeight={600} color={'primary'}>{viewer.value}</Typography>
+                  <Typography
+                    fontWeight={600}
+                    color={'primary'}
+                  >
+                    {viewer.value}
+                  </Typography>
                 </Box>
               ))}
             </Box>
