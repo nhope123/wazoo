@@ -45,20 +45,17 @@ $ git clone https://github.com/nhope123/wazoo.git
 $ cd wazoo
 
 # Install dependencies
-$ npm install
+$ yarn install
+
+# Create a .env file in the root folder and add name variable
+VITE_APP_NAME=nameYouWant
 
 # Run the app
-$ npm start
+$ yarn dev
 ```
 
 3. View React component documentation
 
-```bash
-# Run the documentation
-$ npm run styleguidist server
-```
-
-<!-- TODO: Add direction for the .env file and add a template -->
 
 Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
 
