@@ -6,6 +6,7 @@ const defaultBanner =
   'https://s3.envato.com/files/156884535/Game_Background_Emerald_Lake_4270x2135.jpg';
 
 const mapChannelToDetail = (user_data: ChannelData): ChannelDetail => {
+  
   if (!user_data.stream) {
     const channel = user_data._links.channel.split('/');
     const name = channel[channel.length - 1];

@@ -24,7 +24,7 @@ const SidebarContent = (props: SidebarContentProps) => {
     selectedChannel,
     search,
     channels,
-  } = props;
+  } = props;  
 
   return (
     <Grid2

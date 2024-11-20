@@ -30,6 +30,7 @@ const SearchFilter = (props: SearchFilterProps) => {
       <TextField
         fullWidth
         placeholder="Search users"
+        data-testid="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         slotProps={{

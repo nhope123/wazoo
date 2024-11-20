@@ -1,17 +1,30 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
 import App from './App';
 
+vi.mock('../Sidebar/Sidebar', () => ({
+  __esModule: true,
+  default: () => <div data-testid="sidebar">Sidebar</div>,
+}));
+
+vi.mock('../ChannelDisplay/ChannelDisplay', () => ({
+  __esModule: true,
+  default: () => <div data-testid="channel-display">Channel Display</div>,
+}));
+
 describe('App component', () => {
-  it('should render correctly with initial state', () => {
+  it('should render correctly with initial state', async () => {
     render(<App />);
-    expect(
-      screen.getByRole('heading', {
-        name: /wazoo/i,
-      }),
-    ).toBeInTheDocument();
-    expect(screen.getByTestId('sidebar')).toBeInTheDocument();
-    expect(screen.getByTestId('channel-display')).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(
+        screen.getByRole('heading', {
+          name: /wazoo/i,
+        }),
+      ).toBeInTheDocument();
+      expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+      expect(screen.getByTestId('channel-display')).toBeInTheDocument();
+    });
   });
 
   // TODO: fix this test
@@ -20,11 +33,15 @@ describe('App component', () => {
     window.dispatchEvent(new Event('resize'));
     render(<App />);
 
+    expect(screen.queryByTestId('drawer')).not.toBeInTheDocument();
     fireEvent.click(screen.getByTestId('MenuRoundedIcon'));
 
-    expect(screen.getByRole('presentation')).toBeInTheDocument();
-    // fireEvent.click(toggleButton);
-    expect(screen.getByText(/drawer is closed/i)).toBeInTheDocument();
+    expect(screen.getByTestId('drawer')).toBeInTheDocument();
+    fireEvent.click(screen.getByTestId('MenuRoundedIcon'));
+
+    waitFor(() => {
+      expect(screen.queryByTestId('drawer')).not.toBeInTheDocument();
+    });
   });
 
   it('should change theme mode', () => {

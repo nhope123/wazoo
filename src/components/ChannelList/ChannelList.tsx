@@ -29,7 +29,7 @@ const activeSx: SxProps<Theme> = {
 const ChannelList = (props: ChannelListProps) => {
   const { channels, selectedChannel, setSelectedChannel } = props;
 
-  // console.log('channels', channels);
+  console.log('channels', channels);
 
   return (
     <List

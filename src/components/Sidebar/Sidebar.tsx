@@ -1,24 +1,11 @@
-import axios from 'axios';
-import { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import { ChannelDetail, ChannelFilter, SidebarProps } from './types';
 import Drawer from '@mui/material/Drawer';
-import SidebarContent from './components/SearchFilter/SidebarContent';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import mapChannelToDetail from './helpers/mapChannelToDetail';
+import { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import SidebarContent from './components/SearchFilter/SidebarContent';
+import fetchChannels from './helpers/fetchChannels';
+import {  ChannelDetail, ChannelFilter, SidebarProps } from './types';
 
-const userList = [
-  'ESL_SC2',
-  'OgamingSC2',
-  'cretetion',
-  'freecodecamp',
-  'storbeck',
-  'habathcx',
-  'RobotCaleb',
-  'noobs2ninjas',
-];
-const TWITCH_URL =
-  'https://twitch-proxy.freecodecamp.rocks/twitch-api/streams/';
 
 const Sidebar: FC<SidebarProps> = (props) => {
   const { isSidebarOpen, setChannel, setSidebarOpen, selectedChannel } = props;
@@ -36,34 +23,24 @@ const Sidebar: FC<SidebarProps> = (props) => {
   }, [isMobile, isSidebarOpen, setSidebarOpen, theme.breakpoints]);
 
   useEffect(() => {
-    const data: ChannelDetail[] = [];
-    const raw: any[] = [];
-
-    Promise.all(userList.map((username) => axios(`${TWITCH_URL}${username}`)))
-      .then((res) => {
-        console.log('res: ', res);
-        
-        res.forEach((response) => {
-          raw.push(response.data);
-          console.log('map: ', mapChannelToDetail(response.data));
-          data.push(mapChannelToDetail(response.data));
-        });
-        console.log('data: ', data);
-        
-        setChannels(data);
-        setChannel(data[0]);
-      })
-      .catch((err) => console.log(`error: ${err}`));
+    (async() => { await fetchChannels().then((data) => {
+      console.log('data', data);
+      
+      setChannels(data);
+      setChannel(data[0]);
+    }).catch((err) => console.log(`error: ${err}`));
+  })();
   }, [setChannel]);
 
   const visibleChannels = useMemo(() => {
+    
     let result: ChannelDetail[] = channels;
     if (filter !== 'All') {
       result = channels.filter((channel) =>
         filter === 'Online' ? channel.online : !channel.online,
       );
     }
-
+    
     if (!search) return result;
     return result.filter((channel) =>
       channel.name.toLowerCase().includes(search.toLowerCase()),
@@ -80,7 +57,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
       if (isSidebarOpen) setSidebarOpen(false);
     },
     [isSidebarOpen, setChannel, setSidebarOpen],
-  );
+  );  
 
   return (
     <>
@@ -96,6 +73,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
       />
 
       <Drawer
+        data-testid="drawer"
         anchor="left"
         open={isSidebarOpen}
         onClose={() => setSidebarOpen(false)}
