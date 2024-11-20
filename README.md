@@ -1,88 +1,73 @@
-<h1 align="center">
-  <br>
-  <a href="https://nhope123.github.io/wazoo/"><img src="./src/assets/blue-logo.png" alt="Logo" width="100"></a>
-  <br>
-  Wazoo
-  <br>
-</h1>
+# Wazoo
+Live Demo: https://nhope123.github.io/wazoo/
 
-<h4 align="center">Twitch User data dashboard.</h4>
+Wazoo is a sleek and modern web application that provides comprehensive information about Twitch users. Leveraging cutting-edge web technologies, it offers a seamless and intuitive user experience, combining simplicity with exceptional performance.
 
-<p align="center">
-  <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#validation">Validation</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#authors">Authors</a> •
-  <a href="#license">License</a>
-</p>
+## 🚀 Features
+- Intuitive User Interface
+- Sleek, modern design for a seamless experience.
+- Responsive layout optimized for all screen sizes, from desktop to mobile.
 
+## ⚡ Key Functionalities
+- **Browse Twitch Users:** View a curated collection of Twitch users in an organized interface.
+- **Filter by Status:** Easily filter users by their status: online, offline, or view all.
+- **Detailed User Profiles:** Display comprehensive details about a selected user, including status and additional info.
+- **Quick Access to Streams:** Click a user's name to instantly open their Twitch channel and watch their live stream.
+- **Search by Username:** Find specific Twitch users quickly with a responsive search feature.
+
+## 🛠️ Customization
+Personalize settings to suit your workflow.
+- **Theme Persistence:** Enjoy a personalized experience with a theme setting that remembers your preference (dark or light mode). 
+
+## 🔍 Data Handling
+- Built-in [e.g., search or filtering features] to quickly find what you need.
+[If applicable, add something about how data is handled or stored.]
+
+## 🖥️ Tech Stack
+- **Frontend:** React, Vite, TypeScript
+- **Styling:** Material-ui
+- **Deployment:** GitHub Pages
+- **Test:** Vitest, Testing-Library/react
+
+## 📸 Screenshots
 <div align='center' >
   <img src='./src/assets/mobile.png' alt='dark mobile screenshot' height='300' />   
   <img src='./src/assets/desktop.png' alt='Desktop screenshot' height='300' />
 </div>
 
-<h2 id='key-features' >Key Featuures</h2>
+## 🛠️ Setup & Installation
+### Prerequisites
+Ensure you have the following installed on your machine:
 
-- Fetch a list of Twitch User's data
-- Select a group of User:
-  - Select all users
-  - Select online users
-  - Select offline users
-- Upon selecting an individual User, display User data
-- Link User name to User's online channel
+- Node.js
+- Yarn or npm
 
-<h2 id='how-to-use' >How To Use</h2>
-
-1. Run [online live](https://nhope123.github.io/wazoo/) version.
-2. Clone and run this application. You'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
-
+### Steps
+1. Clone the repository:
 ```bash
-# Clone this repository
-$ git clone https://github.com/nhope123/wazoo.git
-
-# Go into the repository
-$ cd wazoo
-
-# Install dependencies
-$ yarn install
-
-# Create a .env file in the root folder and add name variable
-VITE_APP_NAME=nameYouWant
-
-# Run the app
-$ yarn dev
+git clone https://github.com/nhope123/wazoo.git  
+cd wazoo
+```  
+2. Install dependencies:
+```bash
+yarn install
 ```
+3. Create and add the app name to .env file
+```
+touch .env && echo 'VITE_APP_NAME=<nameYouWant>' >> .env
+```
+4. Start the development server:
+```
+yarn dev
+```
+5. Open your browser and navigate to http://localhost:5173
 
-3. View React component documentation
+## Author
+- [Repository](https://github.com/nhope123)
+- [Portfolio](https://nhope123.github.io/)
+- [Linkedin](https://www.linkedin.com/in/nialhope/)
 
 
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+## 📄 License
+This project is licensed under the [MIT License]('https://mit-license.org/').
 
-<h2 id='validation' >Validation</h2>
-
-- [mobile friendly test](https://search.google.com/test/mobile-friendly?id=3PLD5N1q2U1bfb6-WEx9vw)
-- [HTML Validation](https://validator.w3.org/nu/?doc=https%3A%2F%2Fnhope123.github.io%2Fwazoo%2F)
-
-<h2 id='credits' >Credits</h2>
-
-This software uses the following open source packages:
-
-- [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
-- [Node.js](https://nodejs.org/) - An asynchronous event-driven JavaScript runtime.
-- [Dart Sass](https://sass-lang.com/dart-sass) - Css preprocessor.
-- [React Bootsrap icons](https://www.npmjs.com/package/react-bootstrap-icons) - Free svg icons personal use.
-- [Bootstrap](https://getbootstrap.com/) - Css framework.
-- [icon-icons](https://icon-icons.com/) - Free icons for personal and commercial use.
-- [Uuid](https://www.npmjs.com/package/uuid) - RFC4122 UUIDs creation.
-- [axios](https://www.npmjs.com/package/axios) - Promise based HTTP client for the browser and node.js
-
-<h2 id='authors' >Authors</h2>
-
-- [nhope](https://github.com/nhope123) - Repository
-  - [Portfolio](https://nhope123.github.io/)
-  - [Linkedin](https://www.linkedin.com/in/nialhope/)
-
-<h2 id='license' >License</h2>
-
-Creole Food is an open source software licensed as [GNU General Public License v3.0](LICENSE).

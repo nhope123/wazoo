@@ -14,6 +14,7 @@ export default defineConfig({
       exclude: ['node_modules', 'dist'], // Exclude unnecessary directories
     }),
   ],
+  base: '/wazoo/',
   resolve: {
     alias: {
       '@assets': path.resolve(__dirname, 'src/assets'),
