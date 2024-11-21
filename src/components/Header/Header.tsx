@@ -27,7 +27,11 @@ const iconSx: SxProps<Theme> = {
 };
 
 const SOCIALS = [
-  { title: 'GitHub', url: 'https://github.com/nhope123/wazoo', icon: <GitHub /> },
+  {
+    title: 'GitHub',
+    url: 'https://github.com/nhope123/wazoo',
+    icon: <GitHub />,
+  },
   {
     title: 'Linkedin',
     url: ' https://www.linkedin.com/in/nialhope/',
