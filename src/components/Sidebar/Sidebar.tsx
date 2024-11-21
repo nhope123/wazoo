@@ -4,8 +4,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import SidebarContent from './components/SearchFilter/SidebarContent';
 import fetchChannels from './helpers/fetchChannels';
-import {  ChannelDetail, ChannelFilter, SidebarProps } from './types';
-
+import { ChannelDetail, ChannelFilter, SidebarProps } from './types';
 
 const Sidebar: FC<SidebarProps> = (props) => {
   const { isSidebarOpen, setChannel, setSidebarOpen, selectedChannel } = props;
@@ -23,24 +22,24 @@ const Sidebar: FC<SidebarProps> = (props) => {
   }, [isMobile, isSidebarOpen, setSidebarOpen, theme.breakpoints]);
 
   useEffect(() => {
-    (async() => { await fetchChannels().then((data) => {
-      console.log('data', data);
-      
-      setChannels(data);
-      setChannel(data[0]);
-    }).catch((err) => console.log(`error: ${err}`));
-  })();
+    (async () => {
+      await fetchChannels()
+        .then((data) => {
+          setChannels(data);
+          setChannel(data[0]);
+        })
+        .catch((err) => console.log(`error: ${err}`));
+    })();
   }, [setChannel]);
 
   const visibleChannels = useMemo(() => {
-    
     let result: ChannelDetail[] = channels;
     if (filter !== 'All') {
       result = channels.filter((channel) =>
         filter === 'Online' ? channel.online : !channel.online,
       );
     }
-    
+
     if (!search) return result;
     return result.filter((channel) =>
       channel.name.toLowerCase().includes(search.toLowerCase()),
@@ -57,7 +56,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
       if (isSidebarOpen) setSidebarOpen(false);
     },
     [isSidebarOpen, setChannel, setSidebarOpen],
-  );  
+  );
 
   return (
     <>

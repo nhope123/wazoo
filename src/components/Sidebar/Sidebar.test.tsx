@@ -1,8 +1,8 @@
-import Sidebar from './Sidebar';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { fireEvent,  render, screen,  waitFor } from '../../test/vitest-setup';
+import { beforeEach, describe, expect, it, Mock, vi } from 'vitest';
 import { cleanChannelOffline, cleanChannelOnline } from '../../test/testData';
-
+import { fireEvent, render, screen, waitFor } from '../../test/vitest-setup';
+import fetchChannels from './helpers/fetchChannels';
+import Sidebar from './Sidebar';
 
 // vi.mock('axios');
 
@@ -21,22 +21,24 @@ const renderSidebar = (props = {}) => {
   return render(<Sidebar {...defaultProps} />);
 };
 
-vi.mock('./fetchChannels', () => {
-  return {
-    default: vi.fn().mockImplementation(async () => Promise.resolve([cleanChannelOnline, cleanChannelOffline])),
-  }
-});
+vi.mock('./helpers/fetchChannels', () => ({
+  default: vi
+    .fn()
+    .mockImplementation(() =>
+      Promise.resolve([cleanChannelOnline, cleanChannelOffline]),
+    ),
+}));
 
 describe('Sidebar', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-
   });
 
-  it('should close sidebar on mobile view', () => {
+  it('should close sidebar on mobile view', async () => {
     window.innerWidth = 500;
     window.dispatchEvent(new Event('resize'));
-    renderSidebar({ isSidebarOpen: true });
+
+    await waitFor(() => renderSidebar({ isSidebarOpen: true }));
 
     expect(screen.getByTestId('drawer')).toBeInTheDocument();
     fireEvent.click(screen.getByTestId('drawer'));
@@ -45,132 +47,199 @@ describe('Sidebar', () => {
   });
 
   it('should fetch data and update state', async () => {
-    renderSidebar();
-
     await waitFor(() => {
-      expect(mockSetChannel).toHaveBeenCalled();
+      renderSidebar();
     });
+
+    expect(mockSetChannel).toHaveBeenCalled();
+    expect(mockSetChannel).toHaveBeenCalledWith(cleanChannelOnline);
   });
 
-  it.skip('should filter channels based on filter and search state', async () => {
+  it('should filter channels based on search state', async () => {
     window.innerWidth = 1500;
     window.dispatchEvent(new Event('resize'));
-    
 
-    renderSidebar();
-    screen.logTestingPlaygroundURL();
+    await waitFor(() => {
+      renderSidebar();
+    });
+
+    expect(
+      screen.getByRole('button', { name: 'ESL_SC2 Live: 344 viewers' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'storbeck Offline' }),
+    ).toBeInTheDocument();
 
     const search = screen.getAllByTestId('SearchRoundedIcon')[0];
     const input = search.parentElement?.querySelector('input');
 
-    expect(input).toBeInTheDocument()
+    expect(input).toBeInTheDocument();
     fireEvent.change(input as HTMLElement, {
       target: { value: 'ESL' },
     });
 
     expect(input).toHaveDisplayValue('ESL');
-
-
-
-    // expect(screen.getByRole('button', {name: 'All'})).toBeInTheDocument()
-    // expect(screen.getByText('ESL_SC2')).toBeInTheDocument();
-    // expect(screen.queryByText('OgamingSC2')).not.toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'ESL_SC2 Live: 344 viewers' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: 'storbeck Offline' }),
+    ).not.toBeInTheDocument();
   });
 
-  it.skip('should update search state on handleSearch', () => {
-    renderSidebar();
+  it('should update search state on handleSearch', async () => {
+    await waitFor(() => {
+      renderSidebar();
+    });
 
     const search = screen.getAllByTestId('SearchRoundedIcon')[0];
     const input = search.parentElement?.querySelector('input');
 
-    expect(input).toBeInTheDocument()
+    expect(input).toBeInTheDocument();
     fireEvent.change(input as HTMLElement, {
       target: { value: 'ESL' },
     });
 
     expect(input).toHaveDisplayValue('ESL');
-
   });
 
-  it.skip('should update selected channel and close sidebar on handleChannelSelected', () => {
-    const channel = { name: 'ESL_SC2', online: true };
+  it('should update selected channel and close sidebar on handleChannelSelected', async () => {
+    await waitFor(() => {
+      renderSidebar({ isSidebarOpen: true });
+    });
 
-    renderSidebar({ isSidebarOpen: true });
+    const button = screen.getByRole('button', {
+      name: 'ESL_SC2 Live: 344 viewers',
+    });
 
-    fireEvent.click(screen.getByText('ESL_SC2'));
+    expect(button).toBeInTheDocument();
+    fireEvent.click(button);
 
-    expect(mockSetChannel).toHaveBeenCalledWith(channel);
+    expect(mockSetChannel).toHaveBeenCalledWith(cleanChannelOnline);
     expect(mockSetSidebarOpen).toHaveBeenCalledWith(false);
   });
 
-  it.skip('should display all channels when filter is set to "All"', () => {
-    const channels = [
-      { name: 'ESL_SC2', online: true },
-      { name: 'OgamingSC2', online: false },
-    ];
-
-    renderSidebar({ channels });
-
-    fireEvent.change(screen.getByPlaceholderText('Search'), {
-      target: { value: '' },
+  it('should display all channels when filter is set to "All"', async () => {
+    await waitFor(() => {
+      renderSidebar();
     });
 
-    expect(screen.getByText('ESL_SC2')).toBeInTheDocument();
-    expect(screen.getByText('OgamingSC2')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'All 2' }));
+
+    expect(
+      screen.getByRole('button', { name: 'ESL_SC2 Live: 344 viewers' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'storbeck Offline' }),
+    ).toBeInTheDocument();
   });
 
-  it.skip('should display only online channels when filter is set to "Online"', () => {
-    const channels = [
-      { name: 'ESL_SC2', online: true },
-      { name: 'OgamingSC2', online: false },
-    ];
-
-    renderSidebar({ channels });
-
-    fireEvent.click(screen.getByText('Online'));
-
-    expect(screen.getByText('ESL_SC2')).toBeInTheDocument();
-    expect(screen.queryByText('OgamingSC2')).not.toBeInTheDocument();
-  });
-
-  it.skip('should display only offline channels when filter is set to "Offline"', () => {
-    const channels = [
-      { name: 'ESL_SC2', online: true },
-      { name: 'OgamingSC2', online: false },
-    ];
-
-    renderSidebar({ channels });
-
-    fireEvent.click(screen.getByText('Offline'));
-
-    expect(screen.queryByText('ESL_SC2')).not.toBeInTheDocument();
-    expect(screen.getByText('OgamingSC2')).toBeInTheDocument();
-  });
-
-  it.skip('should filter channels based on filter and search state', () => {
-    const channels = [
-      { name: 'ESL_SC2', online: true },
-      { name: 'OgamingSC2', online: false },
-    ];
-
-    renderSidebar({ channels });
-
-    fireEvent.change(screen.getByPlaceholderText('Search'), {
-      target: { value: 'ESL' },
+  it('should display only online channels when filter is set to "Online"', async () => {
+    await waitFor(() => {
+      renderSidebar();
     });
 
-    expect(screen.getByText('ESL_SC2')).toBeInTheDocument();
-    expect(screen.queryByText('OgamingSC2')).not.toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'ESL_SC2 Live: 344 viewers' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'storbeck Offline' }),
+    ).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Online' }));
+
+    expect(
+      screen.getByRole('button', { name: 'ESL_SC2 Live: 344 viewers' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: 'storbeck Offline' }),
+    ).not.toBeInTheDocument();
   });
 
-  it.skip('should update selected channel and close sidebar on handleChannelSelected', () => {
-    const channel = { name: 'ESL_SC2', online: true };
+  it('should display only offline channels when filter is set to "Offline"', async () => {
+    await waitFor(() => {
+      renderSidebar();
+    });
 
-    renderSidebar({ isSidebarOpen: true });
+    expect(
+      screen.getByRole('button', { name: 'ESL_SC2 Live: 344 viewers' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'storbeck Offline' }),
+    ).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Offline' }));
 
-    fireEvent.click(screen.getByText('ESL_SC2'));
+    expect(
+      screen.queryByRole('button', { name: 'ESL_SC2 Live: 344 viewers' }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'storbeck Offline' }),
+    ).toBeInTheDocument();
+  });
 
-    expect(mockSetChannel).toHaveBeenCalledWith(channel);
+  it('should filter channels based on filter and search state', async () => {
+    (fetchChannels as Mock).mockResolvedValue([
+      cleanChannelOnline,
+      cleanChannelOffline,
+      { ...cleanChannelOnline, name: 'ESports', online: false, id: 1 },
+    ]);
+
+    await waitFor(() => {
+      renderSidebar();
+    });
+
+    expect(
+      screen.getByRole('button', { name: 'ESL_SC2 Live: 344 viewers' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'storbeck Offline' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'ESports Offline' }),
+    ).toBeInTheDocument();
+
+    const search = screen.getAllByTestId('SearchRoundedIcon')[0];
+    const input = search.parentElement?.querySelector('input');
+
+    expect(input).toBeInTheDocument();
+    fireEvent.change(input as HTMLElement, {
+      target: { value: 'ES' },
+    });
+
+    expect(input).toHaveDisplayValue('ES');
+
+    expect(
+      screen.getByRole('button', { name: 'ESL_SC2 Live: 344 viewers' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: 'storbeck Offline' }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'ESports Offline' }),
+    ).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Online' }));
+
+    expect(
+      screen.getByRole('button', { name: 'ESL_SC2 Live: 344 viewers' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: 'storbeck Offline' }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: 'ESports Offline' }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('should update selected channel and close sidebar on handleChannelSelected', async () => {
+    await waitFor(() => {
+      renderSidebar({ isSidebarOpen: true });
+    });
+
+    fireEvent.click(
+      screen.getByRole('button', { name: 'ESL_SC2 Live: 344 viewers' }),
+    );
+
+    expect(mockSetChannel).toHaveBeenCalledWith(cleanChannelOnline);
     expect(mockSetSidebarOpen).toHaveBeenCalledWith(false);
   });
 });

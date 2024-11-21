@@ -7,11 +7,10 @@ import { ChannelDetail } from '../types';
 
 // FILE: src/components/Sidebar/helpers/fetchChannels.test.ts
 
-
 vi.mock('axios');
 vi.mock('../constants', () => ({
   TWITCH_URL: 'https://api.twitch.tv/helix/users?login=',
-  userList: ['user1', 'user2']
+  userList: ['user1', 'user2'],
 }));
 vi.mock('./mapChannelToDetail');
 
@@ -22,11 +21,12 @@ describe('fetchChannels', () => {
       .mockResolvedValueOnce(mockResponse)
       .mockResolvedValueOnce(mockResponse);
     const mockChannelDetail: ChannelDetail = {
-      id: '123', name: 'test_channel',
+      id: '123',
+      name: 'test_channel',
       online: false,
-      link: ''
+      link: '',
     };
-    
+
     (mapChannelToDetail as Mock).mockReturnValue(mockChannelDetail);
 
     const result = await fetchChannels();
@@ -37,7 +37,9 @@ describe('fetchChannels', () => {
   });
 
   it('should handle errors during fetch', async () => {
-    (axios as unknown as Mock).mockRejectedValueOnce(new Error('Network Error'));
+    (axios as unknown as Mock).mockRejectedValueOnce(
+      new Error('Network Error'),
+    );
 
     const consoleSpy = vi.spyOn(console, 'log');
 
