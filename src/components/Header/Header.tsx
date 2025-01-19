@@ -71,7 +71,7 @@ const Header: FC<HeaderProps> = (props) => {
               onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}
               title={`Switch to ${mode === 'light' ? 'dark' : 'light'} mode`}
             >
-              {mode === 'light' ? (
+              {mode === 'dark' ? (
                 <LightModeOutlinedIcon sx={{ color: 'warning.main' }} />
               ) : (
                 <NightlightRounded sx={{ color: '#0cc6d2' }} />
