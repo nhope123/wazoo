@@ -1,5 +1,7 @@
 import CloseRounded from '@mui/icons-material/CloseRounded';
+import GitHub from '@mui/icons-material/GitHub';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import LinkedIn from '@mui/icons-material/LinkedIn';
 import MenuRounded from '@mui/icons-material/MenuRounded';
 import NightlightRounded from '@mui/icons-material/NightlightRounded';
 import { Box } from '@mui/material';
@@ -11,14 +13,17 @@ import Toolbar from '@mui/material/Toolbar';
 import { FC } from 'react';
 import Branding from './components/Branding/Branding';
 import { HeaderProps } from './types';
-import GitHub from '@mui/icons-material/GitHub';
-import LinkedIn from '@mui/icons-material/LinkedIn';
 
 const rootSx: SxProps<Theme> = {
   backgroundColor: 'background.paper',
   color: 'text.primary',
   position: 'static',
   boxShadow: 1,
+
+  '& .MuiContainer-maxWidthLg': {
+    pl: { xs: 0, sm: 2 },
+    pr: { xs: 0, sm: 2 },
+  },
 };
 
 const iconSx: SxProps<Theme> = {

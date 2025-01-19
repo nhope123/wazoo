@@ -11,7 +11,7 @@ const rootSx: SxProps<Theme> = {
   gap: 2,
   height: '100%',
   p: 2,
-  boxShadow: 5,
+  boxShadow: { xs: 5, lg: 0 },
 };
 
 const SidebarContent = (props: SidebarContentProps) => {

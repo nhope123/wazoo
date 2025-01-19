@@ -8,7 +8,7 @@ const rootSx: SxProps<Theme> = {
   alignItems: 'center',
   display: 'flex',
   flexGrow: 1,
-  gap: 2,
+  gap: {xs: 0.5, sm: 2},
   justifyContent: 'flex-start',
 };
 
