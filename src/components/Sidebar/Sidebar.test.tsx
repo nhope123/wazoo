@@ -4,8 +4,6 @@ import { fireEvent, render, screen, waitFor } from '../../test/vitest-setup';
 import fetchChannels from './helpers/fetchChannels';
 import Sidebar from './Sidebar';
 
-// vi.mock('axios');
-
 const mockSetChannel = vi.fn();
 const mockSetSidebarOpen = vi.fn();
 
